@@ -23,6 +23,10 @@ router.use(function(req, res, next) {
   next();
 });
 
+fs.mkdir("./logs", { recursive: true }, err => {
+  if (err) throw err;
+});
+
 app.get("/", function(req, res) {
   console.log("GET call");
   console.log("***** req.headers: >>" + JSON.stringify(req.headers) + "<<");
