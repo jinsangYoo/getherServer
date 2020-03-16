@@ -45,6 +45,7 @@ app.get("/", function(req, res) {
   res.send(JSON.stringify(req.query));
 });
 
-http.createServer(app).listen(52273, function() {
-  console.log("Express server listening on port(52273)");
+let port = 52274;
+http.createServer(app).listen(port, function() {
+  console.log(`Express server listening on port(${port})`);
 });
