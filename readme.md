@@ -4,5 +4,6 @@
 
 # 사용법
 
-- [npm](https://nodejs.org/en/)
-- git 내려받아 `npm install 필수`
+1. [npm 다운로드](https://nodejs.org/en/)
+2. git 내려받기
+3. package.json 이 있는 폴더에서 `npm install` 실행
