@@ -4,4 +4,5 @@
 
 # 사용법
 
+- [npm](https://nodejs.org/en/)
 - git 내려받아 `npm install 필수`
