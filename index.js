@@ -45,6 +45,32 @@ app.get("/", function(req, res) {
   res.send(JSON.stringify(req.query));
 });
 
+app.get("/policy", function(req, res) {
+  console.log("GET call");
+  console.log("***** req.headers: >>" + JSON.stringify(req.headers) + "<<");
+
+  console.log("req.url: " + JSON.stringify(req.url));
+  console.log("req.query: " + JSON.stringify(req.query));
+  console.log("req.body: " + JSON.stringify(req.body));
+
+  res.status(200);
+  res.setHeader("Content-Type", "application/json");
+  res.setHeader("Cp-Allow", "*");
+  res.setHeader("Cp-App", "0");
+  res.setHeader("Cp-Cid", "dummyCid");
+  res.setHeader("Cp-Debug", "0");
+  res.setHeader("Cp-Domain", "http://192.168.0.4:52274/");
+  res.setHeader("Cp-Private", "0");
+  res.setHeader("Cp-Source-Ip", "127.0.0.1");
+  res.setHeader("Cp-Force-Stop", "0");
+  res.setHeader("Cp-Force-Delete-FailedLogs", "0");
+  res.setHeader("Cp-Crash-Domain", "http://192.168.0.4:52274/");
+  res.setHeader("Cp-Repeat-Interval", "21600");
+  res.setHeader("Cp-LNC-Id", "1iAMEe1l2dAylAF1");
+
+  res.send("done");
+});
+
 let port = 52274;
 http.createServer(app).listen(port, function() {
   console.log(`Express server listening on port(${port})`);
