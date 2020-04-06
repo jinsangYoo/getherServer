@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>index page</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script>
+      window.onerror = function(message, source, lineno, colno, error) {
+          var errorMessage = message + "\t(" + source + ":" + lineno + ")";
+          console.error(errorMessage);
+      };
+  </script>
+    <script type="text/javascript">
+      function move() {
+        location.href = 'https://dntlog.acecounter.com/acetmtest/?tk=56'; // 유니버셜 링크 URL은 302로 마켓 주소를 응답
+      }
+
+      function moveDaum() {
+        // location.href = 'https://www.daum.net';
+        document.location = 'https://www.daum.net';
+      }
+
+      function callNativeMethod1() {
+        try {
+          webkit.messageHandlers.ios.postMessage("js message body openDrawer");
+        } catch (err) {
+          alert(err);
+        }
+      }
+
+      function callNativeMethod2() {
+        try {
+          webkit.messageHandlers.ios.postMessage({
+            title: "제목",
+            url: "www.daum.net"
+          });
+        } catch (err) {
+          alert(err);
+        }
+      }
+
+      function colorInjectionHeader(colorArg) {
+        $("h1").css('color', colorArg)
+        return "자바스크립트의 리턴값 " + colorArg;
+      }
+      $(function() {
+        $("#href").text(window.location.href);
+      });
+    </script>
+
+    <script type="text/javascript">
+      console.log("난 localhost 다!!!");
+      console.log("window.aceHybridApp: " + window.aceHybridApp);
+
+      function parentCall() {
+        parent.postMessage("This is a message", "*");
+      }
+
+      function getParameterByName(name) {
+        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+          results = regex.exec(location.search);
+        return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+      }
+
+      function getParams() {
+        var params = {};
+        window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(str, key, value) {
+          params[key] = value;
+        });
+        return params;
+      }
+
+      function getParametersByNameAndAlert(name) {
+        alert(getParameterByName(name));
+      }
+
+      function getParametersAndAlert() {
+        alert(JSON.stringify(getParams()));
+      }
+
+      function test() {
+        console.log('in test()');
+        window.location = "https://new.acecounter.com";
+        // var ifrm = document.createElement("iframe");
+        // ifrm.setAttribute("src")
+        document.location = "acescheme://scriptLogging";
+        // _AceTM.PV("test");
+      }
+
+      function reverseTest() {
+        console.log('in reverseTest()');
+
+        document.location = "acescheme://scriptLogging";
+        // _AceTM.PV("reverseTest");
+        window.location = "https://new.acecounter.com";
+      }
+
+      function ajaxTest() {
+        console.log("in ajaxTest");
+        $.ajax({
+          url: "/index2.html",
+          dataType: 'html',
+          error: function(e) {
+            console.log('failed: ' + e);
+          },
+          success: function(data) {
+            console.log("succeed : " + data);
+          },
+          complete: function(data) {
+            console.log("complete : " + data);
+          }
+        });
+      }
+
+      function callbackSuccessCommon(result) {
+        alert("callbackSuccessCommon::result: >>" + result + "<<");
+      }
+
+      function callbackFailCommon(result) {
+        alert("callbackFailCommon::result: >>" + result + "<<");
+      }
+
+      function callbackSuccessSTVT(result) {
+        alert("callbackSuccessSTVT::result: >>" + result + "<<");
+      }
+
+      function callbackFailSTVT(result) {
+        alert("callbackFailSTVT::result: >>" + result + "<<");
+      }
+
+      function getSTVTWKWebviewOnlyUseJSON() {
+        webkit.messageHandlers.acone.postMessage('{"type":"stvt","callback":{"success":"callbackSuccessSTVT","fail":"callbackFailSTVT"},"identity":"1234abcd"}');
+      }
+
+      function callbackSuccessAppearProduct(result) {
+        alert("callbackSuccessAppearProduct::result: >>" + result + "<<");
+      }
+
+      function callbackFailAppearProduct(result) {
+        alert("callbackFailAppearProduct::result: >>" + result + "<<");
+      }
+
+      // function getAppearProductWKWebviewOnlyUseJSON() {
+      //   webkit.messageHandlers.acone.postMessage(
+      //     '{"type":"appearProduct","callback":{"success":"callbackSuccessAppearProduct","fail":"callbackFailAppearProduct"},"identity":"1234abcd"},"pageName" : "pageName","productName" : "productName","productCategoryName" : "productCategoryName","productPrice" : "productPrice"'
+      //   );
+      // }
+      function getAppearProductWKWebviewOnlyUseJSON() {
+        webkit.messageHandlers.acone.postMessage(
+          '{"type":"appearProduct","callback":{"success":"callbackSuccessAppearProduct","fail":"callbackFailAppearProduct"},"identity":"1234abcd","pageName" : "pageName","productName" : "productName","productCategoryName" : "productCategoryName","productPrice" : "productPrice"}'
+        );
+      }
+
+      function callbackSuccessBuy(result) {
+        alert("callbackSuccessBuy::result: >>" + result + "<<");
+      }
+
+      function callbackFailBuy(result) {
+        alert("callbackFailBuy::result: >>" + result + "<<");
+      }
+
+      function getBuyWKWebviewOnlyUseJSON() {
+        webkit.messageHandlers.acone.postMessage(
+          '{"type": "buy","callback": {"success": "callbackSuccessBuy","fail": "callbackFailBuy"},"identity": "1234abcd","pageName": "pageName","orderNumber": "orderNumber","products": [{"name": "name_1","category": "category_1","price": "1.123","quantity": 1,"productId": "productId_1","optionCodeName": "optionCodeName_1"},{"name": "name_2","category": "category_2","price": "2.123","quantity": 2,"productId": "productId_2","optionCodeName": "optionCodeName_2"}],"paymentMethod" : "paymentMethod"}'
+        );
+      }
+
+      function callbackSuccessAddInCart(result) {
+        alert("callbackSuccessAddInCart::result: >>" + result + "<<");
+      }
+
+      function callbackFailAddInCart(result) {
+        alert("callbackFailAddInCart::result: >>" + result + "<<");
+      }
+
+      function getAddInCartWKWebviewOnlyUseJSON() {
+        webkit.messageHandlers.acone.postMessage(
+          '{"type" : "addInCart","callback" : {"success" : "callbackSuccessAddInCart","fail" : "callbackFailAddInCart"},"identity" : "1234abcd","products" : [{"name" : "name_3","category" : "category_3","price" : "3.123","quantity" : 3,"productId" : "productId_3","optionCodeName" : "optionCodeName_3"},{"name" : "name_4","category" : "category_4","price" : "4.123","quantity" : 4,"productId" : "productId_4","optionCodeName" : "optionCodeName_4"}]}'
+        );
+      }
+
+      function callbackSuccessDeleteInCart(result) {
+        alert("callbackSuccessDeleteInCart::result: >>" + result + "<<");
+      }
+
+      function callbackFailDeleteInCart(result) {
+        alert("callbackFailDeleteInCart::result: >>" + result + "<<");
+      }
+
+      function getDeleteInCartWKWebviewOnlyUseJSON() {
+        webkit.messageHandlers.acone.postMessage(
+          '{"type" : "deleteInCart","callback" : {"success" : "callbackSuccessDeleteInCart","fail" : "callbackFailDeleteInCart"},"identity" : "1234abcd","products" : [{"name" : "name_5","category" : "category_5","price" : "5.123","quantity" : 5,"productId" : "productId_5","optionCodeName" : "optionCodeName_5"},{"name" : "name_6","category" : "category_6","price" : "6.123","quantity" : 6,"productId" : "productId_6","optionCodeName" : "optionCodeName_6"}]}'
+        );
+      }
+
+      function callbackSuccessJoin(result) {
+        alert("callbackSuccessJoin::result: >>" + result + "<<");
+      }
+
+      function callbackFailJoin(result) {
+        alert("callbackFailJoin::result: >>" + result + "<<");
+      }
+
+      function getJoinWKWebviewOnlyUseJSON() {
+        webkit.messageHandlers.acone.postMessage(
+          '{"type" : "join","callback" : {"success" : "callbackSuccessJoin","fail" : "callbackFailJoin"},"identity" : "1234abcd","pageName" : "pageName","userId" : "userId"}');
+      }
+
+      function callbackSuccessLeave(result) {
+        alert("callbackSuccessLeave::result: >>" + result + "<<");
+      }
+
+      function callbackFailLeave(result) {
+        alert("callbackFailLeave::result: >>" + result + "<<");
+      }
+
+      function getLeaveWKWebviewOnlyUseJSON() {
+        webkit.messageHandlers.acone.postMessage(
+          '{"type" : "leave","callback" : {"success" : "callbackSuccessLeave","fail" : "callbackFailLeave"},"identity" : "1234abcd","pageName" : "pageName","userId" : "userId"}');
+      }
+
+      function callbackSuccessLink(result) {
+        alert("callbackSuccessLink::result: >>" + result + "<<");
+      }
+
+      function callbackFailLink(result) {
+        alert("callbackFailLink::result: >>" + result + "<<");
+      }
+
+      function getLinkWKWebviewOnlyUseJSON() {
+        webkit.messageHandlers.acone.postMessage(
+          '{"type" : "link","callback" : {"success" : "callbackSuccessLink","fail" : "callbackFailLink"},"identity" : "1234abcd","pageName" : "URL_64","linkName" : "linkName"}');
+      }
+
+      function callbackSuccessLogin(result) {
+        alert("callbackSuccessLogin::result: >>" + result + "<<");
+      }
+
+      function callbackFailLogin(result) {
+        alert("callbackFailLogin::result: >>" + result + "<<");
+      }
+
+      function getLoginManWKWebviewOnlyUseJSON() {
+        webkit.messageHandlers.acone.postMessage(
+          '{"type" : "login","callback" : {"success" : "callbackSuccessLogin","fail" : "callbackFailLogin"},"identity" : "1234abcd","pageName" : "pageName","userId" : "userId","age" : 0,"gender" : "man","maritalStatus" : "single"}');
+      }
+
+      function getLoginWomanWKWebviewOnlyUseJSON() {
+        webkit.messageHandlers.acone.postMessage(
+          '{"type" : "login","callback" : {"success" : "callbackSuccessLogin","fail" : "callbackFailLogin"},"identity" : "1234abcd","pageName" : "pageName","userId" : "userId","age" : 100,"gender" : "woman","maritalStatus" : "married"}');
+      }
+
+      function callbackSuccessPlWithPage(result) {
+        alert("callbackSuccessPlWithPage::result: >>" + result + "<<");
+      }
+
+      function callbackFailPlWithPage(result) {
+        alert("callbackFailPlWithPage::result: >>" + result + "<<");
+      }
+
+      function getPlWithPageWKWebviewOnlyUseJSON() {
+        webkit.messageHandlers.acone.postMessage(
+          '{"type" : "plWithPage","callback" : {"success" : "callbackSuccessPlWithPage","fail" : "callbackFailPlWithPage"},"identity" : "1234abcd","pageName" : "pageName"}');
+      }
+
+      function callbackSuccessSearch(result) {
+        alert("callbackSuccessSearch::result: >>" + result + "<<");
+      }
+
+      function callbackFailSearch(result) {
+        alert("callbackFailSearch::result: >>" + result + "<<");
+      }
+
+      function getSearchWKWebviewOnlyUseJSON() {
+        webkit.messageHandlers.acone.postMessage(
+          '{"type" : "search","callback" : {"success" : "callbackSuccessSearch","fail" : "callbackFailSearch"},"identity" : "1234abcd","pageName" : "pageName","keyword" : "keyword"}');
+      }
+
+      function callbackSuccessTel(result) {
+        alert("callbackSuccessTel::result: >>" + result + "<<");
+      }
+
+      function callbackFailTel(result) {
+        alert("callbackFailTel::result: >>" + result + "<<");
+      }
+
+      function getTelWKWebviewOnlyUseJSON() {
+        webkit.messageHandlers.acone.postMessage(
+          '{"type" : "tel","callback" : {"success" : "callbackSuccessTel","fail" : "callbackFailTel"},"identity" : "1234abcd","pageName" : "pageName","tel" : "tel"}');
+      }
+
+      function callbackSuccessPolicy(result) {
+        alert("callbackSuccessPolicy::result: >>" + result + "<<");
+      }
+
+      function callbackFailPolicy(result) {
+        alert("callbackFailPolicy::result: >>" + result + "<<");
+      }
+
+      function getPolicyWKWebviewOnlyUseJSON() {
+        webkit.messageHandlers.acone.postMessage('{"type":"policy","callback":{"success":"callbackSuccessPolicy","fail":"callbackFailPolicy"},"identity":"1234abcd"}');
+      }
+
+      function getStatusWKWebview() {
+        webkit.messageHandlers.acone.postMessage('status');
+      }
+
+      function callbackSuccessUIWebview(result) {
+        alert("callbackSuccessUIWebview::result: >>" + result + "<<");
+      }
+
+      function callbackFailUIWebview(result) {
+        alert("callbackFailUIWebview::result: >>" + result + "<<");
+      }
+
+      function getServiceIdUIWebviewOnly() {
+        moveDaum();
+        document.location = "acOne://scriptLogging?callbackMethodName=callbackUIWebview&aci=100341&acm=SITE&aem=PV";
+        // moveDaum();
+      }
+
+      function getPolicyUIWebviewOnlyUseJSON() {
+        document.location = "acOne://scriptLogging?callbackSuccessMethodName=callbackSuccessUIWebview&callbackFailMethodName=callbackFailUIWebview&type=policy&eventName=http://www.daum.net";
+      }
+
+      function getPolicyAndroidOnlyUseJSON() {
+        _AceTM.request('{"type":"policy","callback":{"success":"callbackSuccessPolicy","fail":"callbackFailPolicy"},"identity":"1234abcd"}');
+      }
+
+      function getSTVTAndroidOnlyUseJSON() {
+        _AceTM.request('{"type":"stvt","callback":{"success":"callbackSuccessSTVT","fail":"callbackFailSTVT"},"identity":"1234abcd"}');
+      }
+
+      function getAppearProductAndroidOnlyUseJSON() {
+        _AceTM.request(
+          '{"type":"appearProduct","callback":{"success":"callbackSuccessAppearProduct","fail":"callbackFailAppearProduct"},"identity":"1234abcd","pageName" : "pageName","productName" : "productName","productCategoryName" : "productCategoryName","productPrice" : "productPrice"}'
+        );
+      }
+
+      function getBuyAndroidOnlyUseJSON() {
+        _AceTM.request(
+          '{"type": "buy","callback": {"success": "callbackSuccessBuy","fail": "callbackFailBuy"},"identity": "1234abcd","pageName": "pageName","orderNumber": "orderNumber","products": [{"name": "name_1","category": "category_1","price": "1.123","quantity": 1,"productId": "productId_1","optionCodeName": "optionCodeName_1"},{"name": "name_2","category": "category_2","price": "2.123","quantity": 2,"productId": "productId_2","optionCodeName": "optionCodeName_2"}],"paymentMethod" : "paymentMethod"}'
+        );
+      }
+
+      function getAddInCartAndroidOnlyUseJSON() {
+        _AceTM.request(
+          '{"type" : "addInCart","callback" : {"success" : "callbackSuccessAddInCart","fail" : "callbackFailAddInCart"},"identity" : "1234abcd","products" : [{"name" : "name_3","category" : "category_3","price" : "3.123","quantity" : 3,"productId" : "productId_3","optionCodeName" : "optionCodeName_3"},{"name" : "name_4","category" : "category_4","price" : "4.123","quantity" : 4,"productId" : "productId_4","optionCodeName" : "optionCodeName_4"}]}'
+        );
+      }
+
+      function getDeleteInCartAndroidOnlyUseJSON() {
+        _AceTM.request(
+          '{"type" : "deleteInCart","callback" : {"success" : "callbackSuccessDeleteInCart","fail" : "callbackFailDeleteInCart"},"identity" : "1234abcd","products" : [{"name" : "name_5","category" : "category_5","price" : "5.123","quantity" : 5,"productId" : "productId_5","optionCodeName" : "optionCodeName_5"},{"name" : "name_6","category" : "category_6","price" : "6.123","quantity" : 6,"productId" : "productId_6","optionCodeName" : "optionCodeName_6"}]}'
+        );
+      }
+
+      function getJoinAndroidOnlyUseJSON() {
+        _AceTM.request(
+          '{"type" : "join","callback" : {"success" : "callbackSuccessJoin","fail" : "callbackFailJoin"},"identity" : "1234abcd","pageName" : "pageName","userId" : "userId"}');
+      }
+
+      function getLeaveAndroidOnlyUseJSON() {
+        _AceTM.request(
+          '{"type" : "leave","callback" : {"success" : "callbackSuccessLeave","fail" : "callbackFailLeave"},"identity" : "1234abcd","pageName" : "pageName","userId" : "userId"}');
+      }
+
+      function getLinkAndroidOnlyUseJSON() {
+        _AceTM.request(
+          '{"type" : "link","callback" : {"success" : "callbackSuccessLink","fail" : "callbackFailLink"},"identity" : "1234abcd","pageName" : "URL_64","linkName" : "linkName"}');
+      }
+
+      function getLoginManAndroidOnlyUseJSON() {
+        _AceTM.request(
+          '{"type" : "login","callback" : {"success" : "callbackSuccessLogin","fail" : "callbackFailLogin"},"identity" : "1234abcd","pageName" : "pageName","userId" : "userId","age" : 0,"gender" : "man","maritalStatus" : "single"}');
+      }
+
+      function getLoginWomanAndroidOnlyUseJSON() {
+        _AceTM.request(
+          '{"type" : "login","callback" : {"success" : "callbackSuccessLogin","fail" : "callbackFailLogin"},"identity" : "1234abcd","pageName" : "pageName","userId" : "userId","age" : 100,"gender" : "woman","maritalStatus" : "married"}');
+      }
+
+      function getPlWithPageAndroidOnlyUseJSON() {
+        _AceTM.request(
+          '{"type" : "plWithPage","callback" : {"success" : "callbackSuccessPlWithPage","fail" : "callbackFailPlWithPage"},"identity" : "1234abcd","pageName" : "pageName"}');
+      }
+
+      function getSearchAndroidOnlyUseJSON() {
+        _AceTM.request(
+          '{"type" : "search","callback" : {"success" : "callbackSuccessSearch","fail" : "callbackFailSearch"},"identity" : "1234abcd","pageName" : "pageName","keyword" : "keyword"}');
+      }
+
+      function getTelAndroidOnlyUseJSON() {
+        _AceTM.request(
+          '{"type" : "tel","callback" : {"success" : "callbackSuccessTel","fail" : "callbackFailTel"},"identity" : "1234abcd","pageName" : "pageName","tel" : "tel"}');
+      }
+
+      function getStatusWebview() {
+        var result = _AceTM.request('status');
+        var obj = JSON.parse(result);
+        alert(JSON.stringify(obj));
+      }
+
+      function getUserAgent() {
+        alert('navigator.userAgent: ' + navigator.userAgent);
+      }
+
+      function testAndroidDeepLink() {
+        // location.href = 'intent://open?tk=5753100&gsck=1554710887556425357&as=20#Intent;scheme=ACE100341;end;';
+        location.href = 'intent://open?tk=FP:iPhone.IOS113.10_78_101_141.1524124804000.KO&as=678&ms=876&gsck=1523599187642121678&uss=12&oko=jinsang&pl=진상#Intent;scheme=ACE100341;end;';
+      }
+
+      var fallbackFunction = function() {
+        window.location.replace('market://details?id=com.acecounter.android.acetmtest&referrer=specialparam');
+      };
+
+      function setAlertDivForiOS(initValue) {
+        $('#alertDivForiOS').text('initValue: ' + initValue);
+      }
+
+      function _AceAPP(key, device, st, adid, adeld) {
+        $('#alertDivForiOS').text('key: ' + key + ', device: ' + device + ', st: ' + st);
+        $('#alertDivForConsoleLog_02').text('adid: ' + adid + ', adeld: ' + adeld);
+      }
+
+      function firstWork() {
+        $('#alertDivForComment').text('>>' + window.navigator.platform + '<<');
+        $('#alertDivForConsoleLog_04').text('>>' + navigator.userAgent + '<<');
+        $('#alertDivForConsoleLog_05').text('>>' + navigator.userAgent.search(/crios/i) + '<<');
+        $('#alertDivForConsoleLog_06').text('>>' + navigator.userAgent.search(/webkit/i) + '<<');
+        $('#alertDivForConsoleLog_07').text('>>' + navigator.appName + '<<');
+        if(typeof window.ace_and_interface === 'undefined') {
+          $('#alertDivForConsoleLog_01').text('window.ace_and_interface is undefined');
+          console.log('window.ace_and_interface is undefined');
+          if(window.webkit && window.webkit.messageHandlers) {
+            $('#alertDivForConsoleLog_02').text('valid window.webkit and window.webkit.messageHandlers');
+            console.log('valid window.webkit and window.webkit.messageHandlers');
+            if (navigator.userAgent.search(/crios/i) == -1) {
+              $('#alertDivForConsoleLog_03').text('maybe wkwebview');
+              console.log('maybe wkwebview');
+            }
+            else {
+              $('#alertDivForConsoleLog_03').text('unknown');
+              console.log('unknown');
+            }
+            webkit.messageHandlers.loaded.postMessage('loaded');
+          }
+          else {
+            $('#alertDivForConsoleLog_02').text('invalid window.webkit and window.webkit.messageHandlers');
+            console.log('invalid window.webkit and window.webkit.messageHandlers');
+            if(navigator.userAgent.search(/webkit/i) != -1) {
+              $('#alertDivForConsoleLog_03').text('maybe uiwebview');
+              console.log('maybe uiwebview');
+              // window.location="appjs://loaded";
+            } else {
+              $('#alertDivForConsoleLog_03').text('unknown');
+              console.log('unknown');
+            }
+          }
+          // $('#alertDivForComment').text('window.ace_and_interface is undefined');
+        }
+        else {
+          try {
+            $('#alertDivForConsoleLog_01').text('window.ace_and_interface is not undefined');
+            console.log('window.ace_and_interface is not undefined');
+          var key = window.ace_and_interface.getKey();
+          var device = window.ace_and_interface.getDevice();
+          var st = window.ace_and_interface.getST();
+          var gaid = window.android.getGaid();
+          var isLAT = window.android.getIsLAT();
+
+          $('#alertDivForAOS').text('key: ' + key + ', device: ' + device + ', st: ' + st);
+          $('#alertDivForConsoleLog_02').text('gaid: ' + gaid + ', isLAT: ' + isLAT);
+          }
+          catch(err) {
+            $('#alertDivForConsoleLog_01').text('in catch');
+            console.log("in catch");
+            $('#alertDivForConsoleLog_02').text("err: " + err);
+            console.log("err: " + err);
+          }
+        }
+      }
+
+      function _loader() {
+        console.log('in loaded use load event');
+        firstWork();
+      }
+
+      $(function() {
+        console.log('in ready use jquery');
+        // try {
+        //   // $('#alertDivForiOS').text('testtest: ' + testtest);
+        //   var key = window.ace_and_interface.getKey()
+          
+        // }
+        // catch(err) {
+        //   console.log("in catch");
+        //   console.log("err: " + err);
+        // }
+      });
+    </script>
+
+  <script type="text/javascript" id="">
+  (function(b,h,k,c,g,f,a,d,e){if(!b[c]||!b[c].queue){d=h.getElementsByTagName(k)[0];b[c]={queue:[]};a={};for(f=0;f<g.length;a={m:a.m},f++)a.m=g[f],~a.m.indexOf(".")&&(e=a.m.split(".")[0],b[c][e]=b[c][e]||{},b[c][e][a.m.split(".")[1]]=function(a){return function(){b[c].queue.push([a.m,arguments])}}(a)),b[c][a.m]=function(a){return function(){b[c].queue.push([a.m,arguments])}}(a);a=h.createElement(k);a.async=1;a.src="//static.airbridge.io/sdk/latest/airbridge.min.js";d.parentNode.insertBefore(a,d)}})(window, document,"script","airbridge","init setBanner setDownload setDeeplinks sendSMS sendWeb setUserAgent setUserId setUserEmail setDeviceIFV setDeviceIFA setDeviceGAID events.send events.signIn events.signUp events.signOut events.purchased events.addedToCart events.productDetailsViewEvent events.homeViewEvent events.productListViewEvent events.searchResultViewEvent".split(" "));
+    
+    // airbridge.init({
+    //   app:"airbridge",
+    //   appToken:"537b841f9f6b44ccae77af695ee6e33e",
+    //   utmParsing:!0
+    //   });
+  </script>
+  </head>
+
+  <body onload="_loader()">
+  <!-- <body> -->
+    <h1>진상 로컬 index page!!</h1>
+    <div id="alertDivForiOS">For iOS</div>
+    <div id="alertDivForAOS">For AOS</div>
+    <div id="alertDivForComment">For Comment</div>
+    <div id="alertDivForConsoleLog_01">For ConsoleLog_01</div>
+    <div id="alertDivForConsoleLog_02">For ConsoleLog_02</div>
+    <div id="alertDivForConsoleLog_03">For ConsoleLog_03</div>
+    <div id="alertDivForConsoleLog_04">For ConsoleLog_04</div>
+    <div id="alertDivForConsoleLog_05">For ConsoleLog_05</div>
+    <div id="alertDivForConsoleLog_06">For ConsoleLog_06</div>
+    <div id="alertDivForConsoleLog_07">For ConsoleLog_07</div>
+
+    <hr>
+    <h2>AOS</h2>
+    <button onclick="getStatusWebview();">getStatusWebview()</button><br><br>
+    <button onclick="getPolicyAndroidOnlyUseJSON();">getPolicyAndroidOnlyUseJSON()</button><br><br>
+    <button onclick="getSTVTAndroidOnlyUseJSON();">getSTVTAndroidOnlyUseJSON()</button><br><br>
+    <button onclick="getAppearProductAndroidOnlyUseJSON();">getAppearProductAndroidOnlyUseJSON()</button><br><br>
+    <button onclick="getBuyAndroidOnlyUseJSON();">getBuyAndroidOnlyUseJSON()</button><br><br>
+    <button onclick="getAddInCartAndroidOnlyUseJSON();">getAddInCartAndroidOnlyUseJSON()</button><br><br>
+    <button onclick="getDeleteInCartAndroidOnlyUseJSON();">getDeleteInCartAndroidOnlyUseJSON()</button><br><br>
+    <button onclick="getJoinAndroidOnlyUseJSON();">getJoinAndroidOnlyUseJSON()</button><br><br>
+    <button onclick="getLeaveAndroidOnlyUseJSON();">getLeaveAndroidOnlyUseJSON()</button><br><br>
+    <button onclick="getLinkAndroidOnlyUseJSON();">getLinkAndroidOnlyUseJSON()</button><br><br>
+    <button onclick="getLoginManAndroidOnlyUseJSON();">getLoginManAndroidOnlyUseJSON()</button><br><br>
+    <button onclick="getLoginWomanAndroidOnlyUseJSON();">getLoginWomanAndroidOnlyUseJSON()</button><br><br>
+    <button onclick="getPlWithPageAndroidOnlyUseJSON();">getPlWithPageAndroidOnlyUseJSON()</button><br><br>
+    <button onclick="getSearchAndroidOnlyUseJSON();">getSearchAndroidOnlyUseJSON()</button><br><br>
+    <button onclick="getTelAndroidOnlyUseJSON();">getTelAndroidOnlyUseJSON()</button><br><br>
+
+    <hr>
+    <h2>iOS</h2>
+    <button onclick="getStatusWKWebview();">getStatusWKWebview()</button><br><br><br>
+
+    <button onclick="getPolicyWKWebviewOnlyUseJSON();">getPolicyWKWebviewOnlyUseJSON()</button><br><br>
+    <button onclick="getPolicyUIWebviewOnlyUseJSON();">getPolicyUIWebviewOnlyUseJSON()</button><br><br>
+
+    <button onclick="getSTVTWKWebviewOnlyUseJSON();">getSTVTWKWebviewOnlyUseJSON()</button><br><br><br><br>
+
+    <button onclick="getAppearProductWKWebviewOnlyUseJSON();">getAppearProductWKWebviewOnlyUseJSON()</button><br><br>
+    <button onclick="getBuyWKWebviewOnlyUseJSON();">getBuyWKWebviewOnlyUseJSON()</button><br><br>
+    <button onclick="getAddInCartWKWebviewOnlyUseJSON();">getAddInCartWKWebviewOnlyUseJSON()</button><br><br>
+    <button onclick="getDeleteInCartWKWebviewOnlyUseJSON();">getDeleteInCartWKWebviewOnlyUseJSON()</button><br><br>
+    <button onclick="getJoinWKWebviewOnlyUseJSON();">getJoinWKWebviewOnlyUseJSON()</button><br><br>
+    <button onclick="getLeaveWKWebviewOnlyUseJSON();">getLeaveWKWebviewOnlyUseJSON()</button><br><br>
+    <button onclick="getLinkWKWebviewOnlyUseJSON();">getLinkWKWebviewOnlyUseJSON()</button><br><br>
+    <button onclick="getLoginManWKWebviewOnlyUseJSON();">getLoginManWKWebviewOnlyUseJSON()</button><br><br>
+    <button onclick="getLoginWomanWKWebviewOnlyUseJSON();">getLoginWomanWKWebviewOnlyUseJSON()</button><br><br>
+    <button onclick="getPlWithPageWKWebviewOnlyUseJSON();">getPlWithPageWKWebviewOnlyUseJSON()</button><br><br>
+    <button onclick="getSearchWKWebviewOnlyUseJSON();">getSearchWKWebviewOnlyUseJSON()</button><br><br>
+    <button onclick="getTelWKWebviewOnlyUseJSON();">getTelWKWebviewOnlyUseJSON()</button><br><br>
+
+    <button onclick="fallbackFunction();">AOS_referrer</button><br><br>
+
+    <a href="itms-services://?action=download-manifest&url=https://10.77.77.183:52273/DistributionSummary.plist">ipa 과연?</a><br /><br />
+    <a href="index.html">index.html</a><br /><br />
+
+    <a href="#E1234567">#E1234567</a><br /><br />
+    <a href="index.html#C1234567">index.html#C1234567</a><br /><br />
+    <a href="index.html?#B1234567">index.html?#B1234567</a><br /><br />
+    <a href="?#A1234567">?#A1234567</a><br /><br />
+
+    <button onclick="clickedCustomerClick();">clickedCustomerClick()</button><br><br>
+    <button onclick="getUserAgent();">getUserAgent()</button><br><br>
+    <button onclick="ajaxTest();">ajaxTest</button><br><br>
+    <a onclick="parentCall();" href="#">부모.으샤</a><br><br>
+    <a href="https://aceapp.acecounter.com">앱에서 보기 https://aceapp.acecounter.com</a><br />
+    <a href="https://aceapp.acecounter.com/?kw=99912">앱에서 보기 https://aceapp.acecounter.com/?kw=99912</a><br />
+    <a href="https://aceapp.acecounter.com/?kw=99913">앱에서 보기 https://aceapp.acecounter.com/?kw=99913</a><br />
+    <a href="https://aceapp.acecounter.com/?tk=12">앱에서 보기 https://aceapp.acecounter.com/?tk=12</a><br />
+    <a href="https://aceapp.acecounter.com/aceappplus/?tk=34" id="aceappplus">앱에서 보기 /aceappplus/?tk=34</a><br />
+    <a href="https://aceapp.acecounter.com/acetmtest/?tk=56" id="acetmtest">앱에서 보기 /acetmtest/?tk=56</a><br /><br /><br /><br />
+
+    <a href="market://details?id=com.acecounter.android.acetmtest&referrer=kw=D123456">install referrer market://&referrer=kw=123456</a><br /><br />
+    <a href="market://details?id=com.acecounter.android.acetmtest&referrer=kw%3D23457">install referrer market://&referrer=kw%3D223457</a><br /><br />
+    <a href="market://details?id=com.acecounter.android.acetmtest&referrer=kw%3D23458">install referrer market://&referrer=kw%3D223458</a><br /><br />
+    <a href="market://details?id=com.acecounter.android.acetmtest&referrer=tk%3D123456%26gsck%3D99">install referrer market://&referrer=tk%3D123456%26gsck%3D99</a><br /><br />
+    <a href="market://details?id=com.acecounter.android.acetmtest&referrer=tk%3D123456%26gsck%3D99%26as%3D10%26ms%3D11">install referrer market://&referrer=tk%3D123456%26gsck%3D99%26as%3D10%26ms%3D11</a><br /><br />
+    <a href="market://details?id=com.acecounter.android.acetmtest&referrer=kw%253D123456">install referrer market://&referrer=kw%253D123456</a><br /><br />
+    <a href="market://details?id=com.acecounter.android.acetmtest&referrer=tk%253D123456">install referrer market://&referrer=tk%253D123456</a><br /><br />
+    <a href="https://play.google.com/store/apps/details?id=com.acecounter.android.acetmtest&referrer=kw=123456">install referrer https://&referrer=kw=123456</a><br /><br />
+    <a href="https://play.google.com/store/apps/details?id=com.acecounter.android.acetmtest&referrer=kw%3D123456">install referrer https://&referrer=kw%3D123456</a><br /><br />
+
+    <input type="button" onclick="callNativeMethod1()" value="네이티브 함수 호출 노 파라미터, 리턴값" /><br /><br />
+    <input type="button" onclick="callNativeMethod2()" value="네이티브 함수 호출 여러 파라미터 보내기" /><br /><br />
+    <button onclick="_AceTM.applog('hybrid_app');">AppLog</button><br><br>
+    <button onclick="_AceTM.PV('/index.html');">Page View</button><br><br />
+
+    <a href="/">index.html</a><br /><br /><br /><br />
+    <a href="index2.html">index2.html</a><br /><br /><br /><br />
+    <a href="https://mbr.acecounter.com:10000/v1/bridge?sid=100341&nac_md=daum_ad&nac_cpi=67&nac_m=1&nac_c=67&nac_sm=jinsang%20901&nac_s=10">jinsang 901</a><br /><br /><br /><br />
+    <a href="ACE100341://open?tk=11313110&as=10&gsck=1569392398189927485">jinsang 901 내부 iOS 딥링크</a><br /><br /><br /><br />
+    <a href="ACE100341://open?tk=11313110&as=10&gsck=1569392398189927485&aa=11&bb=222">jinsang 901 내부 iOS 딥링크 기타 파라미터</a><br /><br /><br /><br />
+    <button onclick="_AceTM.CustomerClick('클리크');">Click</button><br><br>
+    <button onclick="_AceTM.SNS('페이스북');">SNS</button><br><br>
+    <button onclick="_AceTM.ReView('제품아이디','분류', 1);">후기</button><br><br>
+
+
+
+    <a href="ACE100341://open?tk=FP:iPhone.IOS113.10_78_101_141.1524124804000.KO&as=678&ms=876&gsck=1523599187642121678&uss=12&oko=jinsang_2&pl=진상&nac_cv=909">ACE100341 딥링크 2</a> <br /><br />
+    <a href="ACE100423://open?kw=FP2:iPhone.IOS113.10_78_101_141.1524124804000.KO&as=678&ms=876&gsck=1523599187642121678&uss=12&oko=jinsang_1&pl=진상&nac_cv=909">ACE100423 딥링크 2</a> <br /><br />
+    <a href="AZ1A43024://open?kw=FP303:iPhone.IOS113.10_78_101_141.1524124804000.KO&as=678&ms=876&gsck=1523599187642121678&uss=12&oko=jinsang&pl=진상&nac_cv=909">AZ1A43024 딥링크 303</a> <br /><br />
+
+
+
+    <a href="http://10.77.99.123:52274/v1/bridge?sid=100341&nac_md=daum_ad&nac_cpi=view100341-55&nac_sm=12&nac_m=1&nac_c=view100341-55&nac_s=888">로컬 브릿지</a></a><br /><br />
+
+
+
+    <a href="intent://open?tk=5753005&gsck=1547600260100325882&as=888&test1=sdsd&test2=234#Intent;scheme=ACE100341;end;">안드로이드 딥링크</a></a><br /><br />
+
+    <a href="ACE100341://open?tk=9sample&as=32341&ms=61234&referrer=121911&gsck=24353634">ACE100341 딥링크</a><br /><br /><br /><br />
+    <a href="boyeproject://deeplink?tk=9sample&kw=42&ms=61234&referrer=121911&gsck=24353634">boyeproject 42 딥링크</a><br /><br /><br /><br />
+    <a href="index3.html">index3.html</a><br /><br />
+    <input type="button" onclick="getParametersByNameAndAlert('aa')" value="aa 파라미터 파싱" /><br /><br />
+    <input type="button" onclick="getParametersAndAlert()" value="전체 파라미터 파싱" /><br /><br />
+    <a href="https://mbr.acecounter.com:10000/v1/bridge?sid=126448&nac_md=normal_mkt&nac_cpi=6&nac_m=1&nac_c=6&nac_sm=landing_test_180906&nac_s=124">현대캐피탈 유니버셜링크</a><br /><br />
+
+    <!-- <iframe src="index3.html" width='100%' height='100%'></iframe>
+    <iframe src="index3.html" width='100%' height='100%'></iframe>
+    <iframe src="index3.html" width='100%' height='100%'></iframe>
+    <iframe src="index3.html" width='100%' height='100%'></iframe>
+    <iframe src="index3.html" width='100%' height='100%'></iframe>
+
+    <iframe src="index3.html" width='100%' height='100%'></iframe>
+    <iframe src="index3.html" width='100%' height='100%'></iframe>
+    <iframe src="index3.html" width='100%' height='100%'></iframe>
+    <iframe src="index3.html" width='100%' height='100%'></iframe>
+    <iframe src="index3.html" width='100%' height='100%'></iframe>
+
+    <iframe src="index3.html" width='100%' height='100%'></iframe>
+    <iframe src="index3.html" width='100%' height='100%'></iframe>
+    <iframe src="index3.html" width='100%' height='100%'></iframe>
+    <iframe src="index3.html" width='100%' height='100%'></iframe>
+    <iframe src="index3.html" width='100%' height='100%'></iframe> -->
+  </body>
+
+</html>
