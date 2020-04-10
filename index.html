@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>index page</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script>
+      function getUserAgent() {
+        // alert('navigator.userAgent: ' + navigator.userAgent);
+        console.log('navigator.userAgent: ' + navigator.userAgent);
+      }
+
+      function getHeaders() {
+        var req = new XMLHttpRequest();
+        req.open('GET', document.location, false);
+        req.send(null);
+
+        // associate array to store all values
+        var data = new Object();
+
+        // get all headers in one call and parse each item
+        var headers = req.getAllResponseHeaders().toLowerCase();
+        var aHeaders = headers.split('\n');
+        var i =0;
+        for (i= 0; i < aHeaders.length; i++) {
+            var thisItem = aHeaders[i];
+            var key = thisItem.substring(0, thisItem.indexOf(':'));
+            var value = thisItem.substring(thisItem.indexOf(':')+1);
+            data[key] = value;
+        }	    
+
+        // get referer
+        var referer = document.referrer;
+        data["Referer"] = referer;
+
+        //get useragent
+        var useragent = navigator.userAgent;
+        data["UserAgent"] = useragent;
+
+
+        //extra code to display the values in html
+        var display = "";
+        for(var key in data) {
+            if (key != "")
+          display += "<b>" + key + "</b> : " + data[key] + "<br>";
+        }
+        document.getElementById("alertDivForConsoleLog_07").innerHTML =  display;
+      }	
+
+      function _loader() {
+        console.log('in loaded use load event');
+        firstWork();
+      }
+
+      $(function() {
+        console.log('in ready use jquery');
+        // try {
+        //   // $('#alertDivForiOS').text('testtest: ' + testtest);
+        //   var key = window.ace_and_interface.getKey()
+          
+        // }
+        // catch(err) {
+        //   console.log("in catch");
+        //   console.log("err: " + err);
+        // }
+      });
+    </script>
+  </head>
+
+  <!-- <body onload="_loader()"> -->
+  <body>
+    <h1>진상 로컬 index page!!</h1>
+    <div id="alertDivForiOS">For iOS</div>
+    <div id="alertDivForAOS">For AOS</div>
+    <div id="alertDivForComment">For Comment</div>
+    <div id="alertDivForConsoleLog_01">For ConsoleLog_01</div>
+    <div id="alertDivForConsoleLog_02">For ConsoleLog_02</div>
+    <div id="alertDivForConsoleLog_03">For ConsoleLog_03</div>
+    <div id="alertDivForConsoleLog_04">For ConsoleLog_04</div>
+    <div id="alertDivForConsoleLog_05">For ConsoleLog_05</div>
+    <div id="alertDivForConsoleLog_06">For ConsoleLog_06</div>
+    <div id="alertDivForConsoleLog_07">For ConsoleLog_07</div>
+
+    <a href="index2.html">index2.html</a><br /><br />
+    <a href="index3.html">index3.html</a><br /><br />
+
+    <button onclick="getUserAgent();">getUserAgent()</button><br><br>
+    <button onclick="getHeaders();">getHeaders()</button><br><br>
+
+    <hr>
+    <h2>AOS</h2>
+    <button onclick="getStatusWebview();">getStatusWebview()</button><br><br>
+    <button onclick="getPolicyAndroidOnlyUseJSON();">getPolicyAndroidOnlyUseJSON()</button><br><br>
+    <button onclick="getSTVTAndroidOnlyUseJSON();">getSTVTAndroidOnlyUseJSON()</button><br><br>
+    <button onclick="getAppearProductAndroidOnlyUseJSON();">getAppearProductAndroidOnlyUseJSON()</button><br><br>
+    <button onclick="getBuyAndroidOnlyUseJSON();">getBuyAndroidOnlyUseJSON()</button><br><br>
+    <button onclick="getAddInCartAndroidOnlyUseJSON();">getAddInCartAndroidOnlyUseJSON()</button><br><br>
+    <button onclick="getDeleteInCartAndroidOnlyUseJSON();">getDeleteInCartAndroidOnlyUseJSON()</button><br><br>
+    <button onclick="getJoinAndroidOnlyUseJSON();">getJoinAndroidOnlyUseJSON()</button><br><br>
+    <button onclick="getLeaveAndroidOnlyUseJSON();">getLeaveAndroidOnlyUseJSON()</button><br><br>
+    <button onclick="getLinkAndroidOnlyUseJSON();">getLinkAndroidOnlyUseJSON()</button><br><br>
+    <button onclick="getLoginManAndroidOnlyUseJSON();">getLoginManAndroidOnlyUseJSON()</button><br><br>
+    <button onclick="getLoginWomanAndroidOnlyUseJSON();">getLoginWomanAndroidOnlyUseJSON()</button><br><br>
+    <button onclick="getPlWithPageAndroidOnlyUseJSON();">getPlWithPageAndroidOnlyUseJSON()</button><br><br>
+    <button onclick="getSearchAndroidOnlyUseJSON();">getSearchAndroidOnlyUseJSON()</button><br><br>
+    <button onclick="getTelAndroidOnlyUseJSON();">getTelAndroidOnlyUseJSON()</button><br><br>
+
+    <hr>
+    <h2>iOS</h2>
+    <button onclick="getStatusWKWebview();">getStatusWKWebview()</button><br><br><br>
+
+    <button onclick="getPolicyWKWebviewOnlyUseJSON();">getPolicyWKWebviewOnlyUseJSON()</button><br><br>
+    <button onclick="getPolicyUIWebviewOnlyUseJSON();">getPolicyUIWebviewOnlyUseJSON()</button><br><br>
+
+    <button onclick="getSTVTWKWebviewOnlyUseJSON();">getSTVTWKWebviewOnlyUseJSON()</button><br><br><br><br>
+
+    <button onclick="getAppearProductWKWebviewOnlyUseJSON();">getAppearProductWKWebviewOnlyUseJSON()</button><br><br>
+    <button onclick="getBuyWKWebviewOnlyUseJSON();">getBuyWKWebviewOnlyUseJSON()</button><br><br>
+    <button onclick="getAddInCartWKWebviewOnlyUseJSON();">getAddInCartWKWebviewOnlyUseJSON()</button><br><br>
+    <button onclick="getDeleteInCartWKWebviewOnlyUseJSON();">getDeleteInCartWKWebviewOnlyUseJSON()</button><br><br>
+    <button onclick="getJoinWKWebviewOnlyUseJSON();">getJoinWKWebviewOnlyUseJSON()</button><br><br>
+    <button onclick="getLeaveWKWebviewOnlyUseJSON();">getLeaveWKWebviewOnlyUseJSON()</button><br><br>
+    <button onclick="getLinkWKWebviewOnlyUseJSON();">getLinkWKWebviewOnlyUseJSON()</button><br><br>
+    <button onclick="getLoginManWKWebviewOnlyUseJSON();">getLoginManWKWebviewOnlyUseJSON()</button><br><br>
+    <button onclick="getLoginWomanWKWebviewOnlyUseJSON();">getLoginWomanWKWebviewOnlyUseJSON()</button><br><br>
+    <button onclick="getPlWithPageWKWebviewOnlyUseJSON();">getPlWithPageWKWebviewOnlyUseJSON()</button><br><br>
+    <button onclick="getSearchWKWebviewOnlyUseJSON();">getSearchWKWebviewOnlyUseJSON()</button><br><br>
+    <button onclick="getTelWKWebviewOnlyUseJSON();">getTelWKWebviewOnlyUseJSON()</button><br><br>
+
+    <button onclick="fallbackFunction();">AOS_referrer</button><br><br>
+
+    <a href="itms-services://?action=download-manifest&url=https://10.77.77.183:52273/DistributionSummary.plist">ipa 과연?</a><br /><br />
+    <a href="index.html">index.html</a><br /><br />
+
+    <a href="#E1234567">#E1234567</a><br /><br />
+    <a href="index.html#C1234567">index.html#C1234567</a><br /><br />
+    <a href="index.html?#B1234567">index.html?#B1234567</a><br /><br />
+    <a href="?#A1234567">?#A1234567</a><br /><br />
+
+    <button onclick="clickedCustomerClick();">clickedCustomerClick()</button><br><br>
+    <button onclick="ajaxTest();">ajaxTest</button><br><br>
+    <a onclick="parentCall();" href="#">부모.으샤</a><br><br>
+    <a href="https://aceapp.acecounter.com">앱에서 보기 https://aceapp.acecounter.com</a><br />
+    <a href="https://aceapp.acecounter.com/?kw=99912">앱에서 보기 https://aceapp.acecounter.com/?kw=99912</a><br />
+    <a href="https://aceapp.acecounter.com/?kw=99913">앱에서 보기 https://aceapp.acecounter.com/?kw=99913</a><br />
+    <a href="https://aceapp.acecounter.com/?tk=12">앱에서 보기 https://aceapp.acecounter.com/?tk=12</a><br />
+    <a href="https://aceapp.acecounter.com/aceappplus/?tk=34" id="aceappplus">앱에서 보기 /aceappplus/?tk=34</a><br />
+    <a href="https://aceapp.acecounter.com/acetmtest/?tk=56" id="acetmtest">앱에서 보기 /acetmtest/?tk=56</a><br /><br /><br /><br />
+
+    <a href="market://details?id=com.acecounter.android.acetmtest&referrer=kw=D123456">install referrer market://&referrer=kw=123456</a><br /><br />
+    <a href="market://details?id=com.acecounter.android.acetmtest&referrer=kw%3D23457">install referrer market://&referrer=kw%3D223457</a><br /><br />
+    <a href="market://details?id=com.acecounter.android.acetmtest&referrer=kw%3D23458">install referrer market://&referrer=kw%3D223458</a><br /><br />
+    <a href="market://details?id=com.acecounter.android.acetmtest&referrer=tk%3D123456%26gsck%3D99">install referrer market://&referrer=tk%3D123456%26gsck%3D99</a><br /><br />
+    <a href="market://details?id=com.acecounter.android.acetmtest&referrer=tk%3D123456%26gsck%3D99%26as%3D10%26ms%3D11">install referrer market://&referrer=tk%3D123456%26gsck%3D99%26as%3D10%26ms%3D11</a><br /><br />
+    <a href="market://details?id=com.acecounter.android.acetmtest&referrer=kw%253D123456">install referrer market://&referrer=kw%253D123456</a><br /><br />
+    <a href="market://details?id=com.acecounter.android.acetmtest&referrer=tk%253D123456">install referrer market://&referrer=tk%253D123456</a><br /><br />
+    <a href="https://play.google.com/store/apps/details?id=com.acecounter.android.acetmtest&referrer=kw=123456">install referrer https://&referrer=kw=123456</a><br /><br />
+    <a href="https://play.google.com/store/apps/details?id=com.acecounter.android.acetmtest&referrer=kw%3D123456">install referrer https://&referrer=kw%3D123456</a><br /><br />
+
+    <input type="button" onclick="callNativeMethod1()" value="네이티브 함수 호출 노 파라미터, 리턴값" /><br /><br />
+    <input type="button" onclick="callNativeMethod2()" value="네이티브 함수 호출 여러 파라미터 보내기" /><br /><br />
+    <button onclick="_AceTM.applog('hybrid_app');">AppLog</button><br><br>
+    <button onclick="_AceTM.PV('/index.html');">Page View</button><br><br />
+
+    <a href="/">index.html</a><br /><br /><br /><br />
+    <a href="https://mbr.acecounter.com:10000/v1/bridge?sid=100341&nac_md=daum_ad&nac_cpi=67&nac_m=1&nac_c=67&nac_sm=jinsang%20901&nac_s=10">jinsang 901</a><br /><br /><br /><br />
+    <a href="ACE100341://open?tk=11313110&as=10&gsck=1569392398189927485">jinsang 901 내부 iOS 딥링크</a><br /><br /><br /><br />
+    <a href="ACE100341://open?tk=11313110&as=10&gsck=1569392398189927485&aa=11&bb=222">jinsang 901 내부 iOS 딥링크 기타 파라미터</a><br /><br /><br /><br />
+
+    <a href="ACE100341://open?tk=FP:iPhone.IOS113.10_78_101_141.1524124804000.KO&as=678&ms=876&gsck=1523599187642121678&uss=12&oko=jinsang_2&pl=진상&nac_cv=909">ACE100341 딥링크 2</a> <br /><br />
+    <a href="ACE100423://open?kw=FP2:iPhone.IOS113.10_78_101_141.1524124804000.KO&as=678&ms=876&gsck=1523599187642121678&uss=12&oko=jinsang_1&pl=진상&nac_cv=909">ACE100423 딥링크 2</a> <br /><br />
+    <a href="AZ1A43024://open?kw=FP303:iPhone.IOS113.10_78_101_141.1524124804000.KO&as=678&ms=876&gsck=1523599187642121678&uss=12&oko=jinsang&pl=진상&nac_cv=909">AZ1A43024 딥링크 303</a> <br /><br />
+
+
+
+    <a href="http://10.77.99.123:52274/v1/bridge?sid=100341&nac_md=daum_ad&nac_cpi=view100341-55&nac_sm=12&nac_m=1&nac_c=view100341-55&nac_s=888">로컬 브릿지</a></a><br /><br />
+
+
+
+    <a href="intent://open?tk=5753005&gsck=1547600260100325882&as=888&test1=sdsd&test2=234#Intent;scheme=ACE100341;end;">안드로이드 딥링크</a></a><br /><br />
+
+    <a href="ACE100341://open?tk=9sample&as=32341&ms=61234&referrer=121911&gsck=24353634">ACE100341 딥링크</a><br /><br /><br /><br />
+    <a href="boyeproject://deeplink?tk=9sample&kw=42&ms=61234&referrer=121911&gsck=24353634">boyeproject 42 딥링크</a><br /><br /><br /><br />
+    
+    <input type="button" onclick="getParametersByNameAndAlert('aa')" value="aa 파라미터 파싱" /><br /><br />
+    <input type="button" onclick="getParametersAndAlert()" value="전체 파라미터 파싱" /><br /><br />
+    <a href="https://mbr.acecounter.com:10000/v1/bridge?sid=126448&nac_md=normal_mkt&nac_cpi=6&nac_m=1&nac_c=6&nac_sm=landing_test_180906&nac_s=124">현대캐피탈 유니버셜링크</a><br /><br />
+
+    <!-- <iframe src="index3.html" width='100%' height='100%'></iframe>
+    <iframe src="index3.html" width='100%' height='100%'></iframe>
+    <iframe src="index3.html" width='100%' height='100%'></iframe>
+    <iframe src="index3.html" width='100%' height='100%'></iframe>
+    <iframe src="index3.html" width='100%' height='100%'></iframe>
+
+    <iframe src="index3.html" width='100%' height='100%'></iframe>
+    <iframe src="index3.html" width='100%' height='100%'></iframe>
+    <iframe src="index3.html" width='100%' height='100%'></iframe>
+    <iframe src="index3.html" width='100%' height='100%'></iframe>
+    <iframe src="index3.html" width='100%' height='100%'></iframe>
+
+    <iframe src="index3.html" width='100%' height='100%'></iframe>
+    <iframe src="index3.html" width='100%' height='100%'></iframe>
+    <iframe src="index3.html" width='100%' height='100%'></iframe>
+    <iframe src="index3.html" width='100%' height='100%'></iframe>
+    <iframe src="index3.html" width='100%' height='100%'></iframe> -->
+  </body>
+
+</html>
