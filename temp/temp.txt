@@ -1,0 +1,8 @@
+// 메인 화면
+2020-04-28 14:41:48.254 7572-7611/? I/[ACE]: [SDK] request url: https://gmb.acecounter.com/mac/?adeld=1&adid=ee34ca11-fda8-474d-add6-5a9aa6599986&ce=1&dm=411*731&logsource=100&mid=AK3A79945&patch=rev01&re=0&ref=bookmark&ri=1&st=1588052508252874410%7C1588052508252874410%7C0%7C0&sts=1588052508252874410&sv=ACA02.01.040&tp=site&tz=20&udf1=0&udf2=0&udf3=0&url=com.acecounter.android.acetmtest%2FMainActivity&vk=1&vt=1588042001949020116%7C4%7C1587979906547974864%7C1
+
+// pl 화면
+2020-04-28 14:44:05.467 7572-7611/com.acecounter.android.acetmtest I/[ACE]: [SDK] request url: https://gmb.acecounter.com/mac/?adeld=1&adid=ee34ca11-fda8-474d-add6-5a9aa6599986&ce=1&dm=411*731&logsource=100&mid=AK3A79945&patch=rev01&re=0&ref=com.acecounter.android.acetmtest%2FMainActivity&ri=1&st=1588052508252874410%7C1588052645464386031%7C0%7C0&sts=1588052508252874410&sv=ACA02.01.040&tp=site&tz=20&udf1=0&udf2=0&udf3=0&url=com.acecounter.android.acetmtest%2Fsite_log%2FPlActivity&vk=0&vt=1588052508252874410%7C5%7C1587979906547974864%7C1
+
+// pl 버튼 클릭
+2020-04-28 14:44:07.446 7572-7611/com.acecounter.android.acetmtest I/[ACE]: [SDK] request url: https://gmb.acecounter.com/mac/?adeld=1&adid=ee34ca11-fda8-474d-add6-5a9aa6599986&ce=1&dm=411*731&logsource=100&mid=AK3A79945&patch=rev01&re=0&ref=com.acecounter.android.acetmtest%2Fsite_log%2FPlActivity&ri=1&st=1588052508252874410%7C1588052647443289824%7C0%7C0&sts=1588052508252874410&sv=ACA02.01.040&tp=site&tz=20&udf1=0&udf2=0&udf3=0&url=com.acecounter.android.acetmtest%2F%ED%8E%98%EC%9D%B4%EC%A7%80_42&vk=0&vt=1588052508252874410%7C5%7C1587979906547974864%7C1
