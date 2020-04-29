@@ -419,8 +419,8 @@
         $('#alertDivForiOS').text('initValue: ' + initValue);
       }
 
-      function _AceAPP(key, device, st, adid, adeld) {
-        $('#alertDivForiOS').text('key: ' + key + ', device: ' + device + ', st: ' + st);
+      function _AceAPP(key, device, ts, adid, adeld) {
+        $('#alertDivForiOS').text('key: ' + key + ', device: ' + device + ', ts: ' + ts);
         $('#alertDivForConsoleLog_02').text('adid: ' + adid + ', adeld: ' + adeld);
       }
 
@@ -466,11 +466,11 @@
             console.log('window.ace_and_interface is not undefined');
           var key = window.ace_and_interface.getKey();
           var device = window.ace_and_interface.getDevice();
-          var st = window.ace_and_interface.getST();
+          var ts = window.ace_and_interface.getTS();
           var gaid = window.android.getGaid();
           var isLAT = window.android.getIsLAT();
 
-          $('#alertDivForAOS').text('key: ' + key + ', device: ' + device + ', st: ' + st);
+          $('#alertDivForAOS').text('key: ' + key + ', device: ' + device + ', ts: ' + ts);
           $('#alertDivForConsoleLog_02').text('gaid: ' + gaid + ', isLAT: ' + isLAT);
           }
           catch(err) {

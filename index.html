@@ -47,6 +47,64 @@
         document.getElementById("alertDivForConsoleLog_07").innerHTML =  display;
       }	
 
+      function firstWork() {
+        $('#alertDivForComment').text('>>' + window.navigator.platform + '<<');
+        $('#alertDivForConsoleLog_04').text('>>' + navigator.userAgent + '<<');
+        $('#alertDivForConsoleLog_05').text('>>' + navigator.userAgent.search(/crios/i) + '<<');
+        $('#alertDivForConsoleLog_06').text('>>' + navigator.userAgent.search(/webkit/i) + '<<');
+        $('#alertDivForConsoleLog_07').text('>>' + navigator.appName + '<<');
+        if(typeof window.ace_and_interface === 'undefined') {
+          $('#alertDivForConsoleLog_01').text('window.ace_and_interface is undefined');
+          console.log('window.ace_and_interface is undefined');
+          if(window.webkit && window.webkit.messageHandlers) {
+            $('#alertDivForConsoleLog_02').text('valid window.webkit and window.webkit.messageHandlers');
+            console.log('valid window.webkit and window.webkit.messageHandlers');
+            if (navigator.userAgent.search(/crios/i) == -1) {
+              $('#alertDivForConsoleLog_03').text('maybe wkwebview');
+              console.log('maybe wkwebview');
+            }
+            else {
+              $('#alertDivForConsoleLog_03').text('unknown');
+              console.log('unknown');
+            }
+            webkit.messageHandlers.loaded.postMessage('loaded');
+          }
+          else {
+            $('#alertDivForConsoleLog_02').text('invalid window.webkit and window.webkit.messageHandlers');
+            console.log('invalid window.webkit and window.webkit.messageHandlers');
+            if(navigator.userAgent.search(/webkit/i) != -1) {
+              $('#alertDivForConsoleLog_03').text('maybe uiwebview');
+              console.log('maybe uiwebview');
+              // window.location="appjs://loaded";
+            } else {
+              $('#alertDivForConsoleLog_03').text('unknown');
+              console.log('unknown');
+            }
+          }
+          // $('#alertDivForComment').text('window.ace_and_interface is undefined');
+        }
+        else {
+          try {
+            $('#alertDivForConsoleLog_01').text('window.ace_and_interface is not undefined');
+            console.log('window.ace_and_interface is not undefined');
+          var key = window.ace_and_interface.getKey();
+          var device = window.ace_and_interface.getDevice();
+          var ts = window.ace_and_interface.getTS();
+          var gaid = window.android.getGaid();
+          var isLAT = window.android.getIsLAT();
+
+          $('#alertDivForAOS').text('key: ' + key + ', device: ' + device + ', ts: ' + ts);
+          $('#alertDivForConsoleLog_02').text('gaid: ' + gaid + ', isLAT: ' + isLAT);
+          }
+          catch(err) {
+            $('#alertDivForConsoleLog_01').text('in catch');
+            console.log("in catch");
+            $('#alertDivForConsoleLog_02').text("err: " + err);
+            console.log("err: " + err);
+          }
+        }
+      }
+
       function _loader() {
         console.log('in loaded use load event');
         firstWork();
@@ -67,8 +125,8 @@
     </script>
   </head>
 
-  <!-- <body onload="_loader()"> -->
-  <body>
+  <body onload="_loader()">
+  <!-- <body> -->
     <h1>진상 로컬 index page!!</h1>
     <div id="alertDivForiOS">For iOS</div>
     <div id="alertDivForAOS">For AOS</div>
