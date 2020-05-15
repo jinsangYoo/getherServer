@@ -123,6 +123,19 @@ app.get("/policy", function (req, res) {
   res.send("done");
 });
 
+app.post("/debuglog", function (req, res) {
+  console.log("POST call");
+  console.log("***** req.headers: >>" + JSON.stringify(req.headers) + "<<");
+
+  console.log("req.url: " + JSON.stringify(req.url));
+  console.log("req.query: " + JSON.stringify(req.query));
+  console.log("req.body: " + JSON.stringify(req.body));
+
+  res.status(200);
+  res.setHeader("Content-Type", "application/json");
+  res.send("done");
+});
+
 let port = 52274;
 http.createServer(app).listen(port, function () {
   console.log(`Express server listening on port(${port})`);
