@@ -47,6 +47,11 @@
         document.getElementById("alertDivForConsoleLog_07").innerHTML =  display;
       }	
 
+      function _AceAPP(key, device, ts, adid, adeld) {
+        $('#alertDivForiOS').text('key: ' + key + ', device: ' + device + ', ts: ' + ts);
+        $('#alertDivForConsoleLog_02').text('adid: ' + adid + ', adeld: ' + adeld);
+      }
+      
       function firstWork() {
         $('#alertDivForComment').text('>>' + window.navigator.platform + '<<');
         $('#alertDivForConsoleLog_04').text('>>' + navigator.userAgent + '<<');
