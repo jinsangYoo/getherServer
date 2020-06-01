@@ -1,8 +1,16 @@
-// 메인 화면
-2020-04-28 14:41:48.254 7572-7611/? I/[ACE]: [SDK] request url: https://gmb.acecounter.com/mac/?adeld=1&adid=ee34ca11-fda8-474d-add6-5a9aa6599986&ce=1&dm=411*731&logsource=100&mid=AK3A79945&patch=rev01&re=0&ref=bookmark&ri=1&st=1588052508252874410%7C1588052508252874410%7C0%7C0&sts=1588052508252874410&sv=ACA02.01.040&tp=site&tz=20&udf1=0&udf2=0&udf3=0&url=com.acecounter.android.acetmtest%2FMainActivity&vk=1&vt=1588042001949020116%7C4%7C1587979906547974864%7C1
-
-// pl 화면
-2020-04-28 14:44:05.467 7572-7611/com.acecounter.android.acetmtest I/[ACE]: [SDK] request url: https://gmb.acecounter.com/mac/?adeld=1&adid=ee34ca11-fda8-474d-add6-5a9aa6599986&ce=1&dm=411*731&logsource=100&mid=AK3A79945&patch=rev01&re=0&ref=com.acecounter.android.acetmtest%2FMainActivity&ri=1&st=1588052508252874410%7C1588052645464386031%7C0%7C0&sts=1588052508252874410&sv=ACA02.01.040&tp=site&tz=20&udf1=0&udf2=0&udf3=0&url=com.acecounter.android.acetmtest%2Fsite_log%2FPlActivity&vk=0&vt=1588052508252874410%7C5%7C1587979906547974864%7C1
-
-// pl 버튼 클릭
-2020-04-28 14:44:07.446 7572-7611/com.acecounter.android.acetmtest I/[ACE]: [SDK] request url: https://gmb.acecounter.com/mac/?adeld=1&adid=ee34ca11-fda8-474d-add6-5a9aa6599986&ce=1&dm=411*731&logsource=100&mid=AK3A79945&patch=rev01&re=0&ref=com.acecounter.android.acetmtest%2Fsite_log%2FPlActivity&ri=1&st=1588052508252874410%7C1588052647443289824%7C0%7C0&sts=1588052508252874410&sv=ACA02.01.040&tp=site&tz=20&udf1=0&udf2=0&udf3=0&url=com.acecounter.android.acetmtest%2F%ED%8E%98%EC%9D%B4%EC%A7%80_42&vk=0&vt=1588052508252874410%7C5%7C1587979906547974864%7C1
+2020-06-01 17:07:58.419239+0900 AceCounter[11590:3346380] SampleApp_ACSDK_SDK::_keyValue: AK3A79964
+2020-06-01 17:07:58.419307+0900 AceCounter[11590:3346380] SampleApp_ACSDK_SDK::_debugModeValue: NO
+2020-06-01 17:07:58.419339+0900 AceCounter[11590:3346380] SampleApp_ACSDK_SDK::_enablePrivacyPolicyValue: NO
+2020-06-01 17:07:58.421085+0900 AceCounter[11590:3346380] SampleApp_ACSDK_SDK::model: iPhone9,4
+2020-06-01 17:07:58.421187+0900 AceCounter[11590:3346380] SampleApp_ACSDK_SDK::[[UIDevice currentDevice] model]: iPhone
+2020-06-01 17:07:58.430216+0900 AceCounter[11590:3346535] SampleApp_ACSDK_SDK::Permission granted: YES
+2020-06-01 17:07:58.439288+0900 AceCounter[11590:3346380] SampleApp_ACSDK_SDK::-[SceneDelegate scene:willConnectToSession:options:]
+2020-06-01 17:07:58.439357+0900 AceCounter[11590:3346380] SampleApp_ACSDK_SDK::-[SceneDelegate scene:openURLContexts:]
+2020-06-01 17:07:58.439390+0900 AceCounter[11590:3346380] SampleApp_ACSDK_SDK::-[SceneDelegate scene:openURLContexts:]::url: (null)
+2020-06-01 17:07:58.439418+0900 AceCounter[11590:3346380] SampleApp_ACSDK_SDK::-[SceneDelegate scene:openURLContexts:]::url.query: (null)
+2020-06-01 17:07:58.475004+0900 AceCounter[11590:3346380] [Warning] Warning once only: Detected a case where constraints ambiguously suggest a height of zero for a table view cell's content view. We're considering the collapse unintentional and using standard height instead. Cell: <MenuTableViewCell: 0x104f1b6e0; baseClass = UITableViewCell; frame = (0 28; 240 43.5); clipsToBounds = YES; autoresize = W; layer = <CALayer: 0x283ab95e0>>
+2020-06-01 17:07:58.494634+0900 AceCounter[11590:3346380] -[LoginAceCounterViewController detectTheme] called
+2020-06-01 17:07:58.494729+0900 AceCounter[11590:3346380] UIUserInterfaceStyleLight
+2020-06-01 17:07:58.530326+0900 AceCounter[11590:3346380] [ACE] [SDK]: Initialize to ACSDK
+2020-06-01 17:07:58.562960+0900 AceCounter[11590:3346380] SampleApp_ACSDK_SDK::-[AppDelegate application:didRegisterForRemoteNotificationsWithDeviceToken:]::token: 5af4e60e13e1a5e8207863a33ebc1366a76bc9c20e433d09dfdb86168ac96ea9
+2020-06-01 17:07:58.719209+0900 AceCounter[11590:3346539] [] tcp_output [C1.1:3] flags=[R.] seq=3462943845, ack=1225135843, win=2047 state=CLOSED rcv_nxt=1225135843, snd_una=3462943814
