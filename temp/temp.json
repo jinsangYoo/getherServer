@@ -1,34 +1,48 @@
-{
-  "logType": "log",
-  "createTime": 1586138824882,
-  "params": {
-    "adeld": "1",
-    "adid": "94a9248c-6060-452a-9f30-33f81d177bf4",
-    "ce": "1",
-    "dm": "360*640",
-    "logsource": 100,
-    "mid": "AZ1A43024",
-    "re": 0,
-    "ref": "com.acecounter.android.acetmtest/hybrid/HybridWebActivity",
-    "ri": "1",
-    "st": "1586138788523904492|1586138824883146149|0|0",
-    "sts": "1586138788523904492",
-    "sv": "ACA02.01.040",
-    "tp": "site",
-    "tz": "20",
-    "udf1": 0,
-    "udf2": 0,
-    "udf3": 0,
-    "url": "com.acecounter.android.acetmtest/hybrid/HybridWebActivity",
-    "vk": 0,
-    "vt": "1586138788523904492|213|1585099271184531372|1"
-  },
-  "request": {
-    "X-AceAPI-Key": "AZ1A43024",
-    "User-Agent": "Dalvik/2.1.0 (Linux; U; Android 6.0.1; SM-G906S Build/MMB29M)"
-  },
-  "failedCount": 1,
-  "throwable": {
-    "stackTrace": "failed to connect to gmb.acecounter.com/43.227.116.112 (port 443) after 2000ms"
-  }
-}
+: https://gmb.acecounter.com/mac/?adeld=1
+adid=ee34ca11-fda8-474d-add6-5a9aa6599986
+ce=1
+dm=411*731
+kw=000089
+logsource=3210
+mid=AK2A79936
+patch=rev01
+re=0
+ref=com.acecounter.android.acetmtest%2FMainActivity
+ri=1
+src=ACE_push
+st=1615448810723679586%7C1615449030270912214%7C0%7C0
+sts=1615448810723679586
+sv=ACA02.02.030
+tp=mclick
+tz=20
+udf1=0
+udf2=0
+udf3=0
+url=com.acecounter.android.acetmtest%2F
+vk=0
+vt=1615448810723679586%7C11%7C1615444738521284138%7C1%7C1615444737973817789
+2021-03-11 16:51:39.995 28165-28212/com.acecounter.android.acetmtest D/Task: [SDK] in completed(
+rl: https://gmb.acecounter.com/mac/?adeld=1
+adid=ee34ca11-fda8-474d-add6-5a9aa6599986
+ce=1
+dm=411*731
+kw=
+logsource=100
+mid=AK2A79936
+patch=rev01
+re=0
+ref=com.acecounter.android.acetmtest%2F
+ri=1
+src=
+st=1615448810723679586%7C1615449100073149027%7C0%7C0
+sts=1615448810723679586
+sv=ACA02.02.030
+tp=site
+tz=20
+udf1=0
+udf2=0
+udf3=0
+url=com.acecounter.android.acetmtest%2FMainActivity
+vk=0
+vt=1615448810723679586%7C11%7C1615444738521284138%7C1%7C1615444737973817789
+2021-03-11 16:51:40.215 28165-28212/com.acecounter.android.acetmtest D/Task: [SDK] in complete

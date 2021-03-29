@@ -6,6 +6,7 @@ var router = express.Router();
 var fs = require("fs");
 
 var format = require("date-format");
+const jwt = require("jsonwebtoken");
 
 app.use(express.json());
 
@@ -134,6 +135,57 @@ app.post("/debuglog", function (req, res) {
   res.status(200);
   res.setHeader("Content-Type", "application/json");
   res.send("done");
+});
+
+app.get("/sign", function (req, res) {
+  const ALGORITHM = "ES256";
+  const APNS_KEY_ID = "55M8FH3JR2";
+  const APNS_AUTH_KEY = "./AuthKey_55M8FH3JR2.p8";
+  const TEAM_ID = "HA4JNBHU77";
+  const BUNDLE_ID = "com.acecounter.aceappplus";
+  const DEVICE_TOKEN =
+    "27163d3cf126382289ab873b0eb02c420efe0707c027ea1fe4f91458f2d07204";
+
+  console.log("sign call");
+  console.log("***** req.headers: >>" + JSON.stringify(req.headers) + "<<");
+
+  console.log("req.url: " + JSON.stringify(req.url));
+  console.log("req.query: " + JSON.stringify(req.query));
+  console.log("req.body: " + JSON.stringify(req.body));
+  console.log(
+    "(Math.floor(Date.now() / 1000)): " + Math.floor(Date.now() / 1000)
+  );
+
+  fs.readFile(APNS_AUTH_KEY, function (error, secret) {
+    res.setHeader("Content-Type", "application/json");
+    if (error) {
+      res.status(503);
+      res.send("failed readFile::" + error);
+    }
+
+    jwt.sign(
+      {
+        iss: TEAM_ID,
+        iat: Math.floor(Date.now() / 1000),
+      },
+      secret,
+      {
+        header: {
+          alg: ALGORITHM,
+          kid: APNS_KEY_ID,
+        },
+      },
+      function (err, encoded) {
+        if (err) {
+          res.status(503);
+          res.send("failed sign::" + err);
+        } else {
+          res.status(200);
+          res.send(encoded);
+        }
+      }
+    );
+  });
 });
 
 let port = 52274;

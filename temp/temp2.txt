@@ -1,1 +1,23 @@
-2020-04-29 15:10:00.916 12113-12151/com.acecounter.android.acetmtest I/[ACE]: [SDK] request url: https://gmb.acecounter.com/mac/?adeld=1&adid=ee34ca11-fda8-474d-add6-5a9aa6599986&ce=1&dm=411*731&kw=&logsource=100&mid=AK2A79936&patch=rev01&re=0&ref=com.acecounter.android.acetmtest%2F&ri=1&src=&st=1588140600805284193%7C1588140600914500249%7C0%7C0&sts=1588140600805284193&sv=ACA02.01.040&tp=site&tz=20&udf1=0&udf2=0&udf3=0&url=com.acecounter.android.acetmtest%2FMainActivity&vk=0&vt=1588140600805284193%7C6%7C1588137795835677680%7C1
+https://gmb.acecounter.com/mac/?tp=site
+re=0
+udf1=0
+adeld=1
+st=1607415834631996622%7C1607415860148198439%7C0%7C0
+dm=414*736
+url=com.acecounter.aceappplus/HomeViewController
+logsource=100
+ri=1
+sv=ACA02.02.030
+udf2=0
+sts=1607415834631996622
+ag=0
+vt=1607415834631996622%7C5%7C1607049681791407724%7C1%7C1607049681287838138
+ce=1
+patch=rev01
+adid=4E03FAF7-0D63-41E0-B1CF-2FCE88EAD732
+lg=ko
+udf3=0
+tz=20
+ref=com.acecounter.aceappplus/-%5BLoginAceCounterViewController%20onClickedLogin:%5D_block_invoke_3
+mid=AK3A79964
+vk=0
