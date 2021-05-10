@@ -1,48 +1,31 @@
-: https://gmb.acecounter.com/mac/?adeld=1
-adid=ee34ca11-fda8-474d-add6-5a9aa6599986
-ce=1
-dm=411*731
-kw=000089
-logsource=3210
-mid=AK2A79936
-patch=rev01
-re=0
-ref=com.acecounter.android.acetmtest%2FMainActivity
-ri=1
-src=ACE_push
-st=1615448810723679586%7C1615449030270912214%7C0%7C0
-sts=1615448810723679586
-sv=ACA02.02.030
-tp=mclick
-tz=20
-udf1=0
-udf2=0
-udf3=0
-url=com.acecounter.android.acetmtest%2F
-vk=0
-vt=1615448810723679586%7C11%7C1615444738521284138%7C1%7C1615444737973817789
-2021-03-11 16:51:39.995 28165-28212/com.acecounter.android.acetmtest D/Task: [SDK] in completed(
-rl: https://gmb.acecounter.com/mac/?adeld=1
-adid=ee34ca11-fda8-474d-add6-5a9aa6599986
-ce=1
-dm=411*731
-kw=
-logsource=100
-mid=AK2A79936
-patch=rev01
-re=0
-ref=com.acecounter.android.acetmtest%2F
-ri=1
-src=
-st=1615448810723679586%7C1615449100073149027%7C0%7C0
-sts=1615448810723679586
-sv=ACA02.02.030
-tp=site
-tz=20
-udf1=0
-udf2=0
-udf3=0
-url=com.acecounter.android.acetmtest%2FMainActivity
-vk=0
-vt=1615448810723679586%7C11%7C1615444738521284138%7C1%7C1615444737973817789
-2021-03-11 16:51:40.215 28165-28212/com.acecounter.android.acetmtest D/Task: [SDK] in complete
+{
+  "statuses": {
+    "configuration": {
+      "key": "AK2A79936",
+      "isDebug": true,
+      "isEnablePrivacyPolicy": false,
+      "isGather": true,
+      "platform": 0
+    },
+    "controlTower": {
+      "isCompletePolicy": true,
+      "isForceStop": false,
+      "isInstallReferrerWaitDone": false,
+      "isSDKEnabled": true
+    }
+  },
+  "internal": {
+    "adeld": "1",
+    "adid": "ee34ca11-fda8-474d-add6-5a9aa6599986",
+    "vt": {
+      "vts": "1620611517140597622",
+      "visitCount": 0,
+      "buyTimeTS": "1620611517140597622",
+      "buyCount": 0,
+      "pcStamp": "1620611516775118813"
+    },
+    "versions": { "version": "02.02.03", "patch": "rev01" },
+    "isConnect": true
+  },
+  "result": "success"
+}
