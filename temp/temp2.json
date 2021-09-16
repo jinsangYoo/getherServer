@@ -1,0 +1,27 @@
+{
+  "_responseCode": 200,
+  "_responseBody": "done",
+  "_responseHeaders": {
+    "access-control-allow-origin": "*",
+    "x-powered-by": "Express",
+    "content-length": "4",
+    "cp-cid": "dummyCid",
+    "connection": "keep-alive",
+    "cp-source-ip": "127.0.0.1",
+    "cp-lnc-id": "1iAMEe1l2dAylAF1",
+    "cp-private": "0",
+    "cp-domain": "http://192.168.0.4:52274/",
+    "etag": "W/\"4-5f2c/g6AOREdVLWI53srsMrUHDo\"",
+    "cp-app": "0",
+    "accept-ch": "UA, Platform, Arch",
+    "cp-repeat-interval": "21600",
+    "cp-debug": "0",
+    "cp-crash-domain": "http://192.168.0.4:52274/",
+    "content-type": "text/plain; charset=utf-8",
+    "cp-allow": "*",
+    "cp-force-stop": "0",
+    "date": "Mon, 19 Jul 2021 07:34:56 GMT",
+    "cp-force-delete-failedlogs": "0",
+    "keep-alive": "timeout=5"
+  }
+}

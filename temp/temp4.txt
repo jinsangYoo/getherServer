@@ -1,21 +1,103 @@
- https://gmb.acecounter.com/mac/?adeld=1
-adid=ee34ca11-fda8-474d-add6-5a9aa6599986
-ce=1
-dm=411*731
-logsource=100
-mid=AK2A79936
-patch=rev01
-re=0
-ref=com.acecounter.android.acetmtest%2FMainActivity
-ri=1
-st=1607416078222338637%7C1607416139224462985%7C0%7C0
-sts=1607416078222338637
-sv=ACA02.02.030
-tp=site
-tz=20
-udf1=0
-udf2=0
-udf3=0
-url=com.acecounter.android.acetmtest%2Fsite_log%2FPlActivity
-vk=0
-vt=1607416078222338637%7C5%7C1606816768460545363%7C1%7C1606816767841843104
+ BUNDLE  ./index.js
+
+ LOG  Running "ch02_4" with {"rootTag":1}
+ LOG  reactslimer:
+ LOG
+
+SDK + Promise 초기화 클릭!
+ LOG  [ACE] [comInit] [SDK] message: NHN DATA SDK version: 0.0.164, debug: >><<
+ LOG  [ACE] [comInit] [SDK] message: Start init SDK., debug: >><<
+ LOG  [ACE] [comInit] [SDK] message: AceConfiguration information:, debug: >><<, info: {
+  "platform": "ACONE",
+  "key": "100341",
+  "debug": true,
+  "enablePrivacyPolicy": false
+}
+ LOG  [ACE] [paramUtilForOne] [SDK] message: tz: 20, debug: >><<
+ LOG  [ACE] [paramForOne] [SDK] message: in loadVT::in Promise::result, debug: >><<, info: {
+  "ac1_buyCount": "0",
+  "ac1_buyTimeTS": "0",
+  "ac1_random6BuyTimeTS": "000000",
+  "ac1_visitCount": "0",
+  "ac1_vTS": "0",
+  "ac1_random6VTS": "000000",
+  "ac1_pcStamp": "1628074273671",
+  "ac1_random6pcStamp": "493711"
+}
+ LOG  [ACE] [paramForOne] [SDK] message: setJSONtoVT::value: {
+  "ac1_buyCount": "0",
+  "ac1_buyTimeTS": "0",
+  "ac1_random6BuyTimeTS": "000000",
+  "ac1_visitCount": "0",
+  "ac1_vTS": "0",
+  "ac1_random6VTS": "000000",
+  "ac1_pcStamp": "1628074273671",
+  "ac1_random6pcStamp": "493711"
+}, debug: >><<
+ LOG  [ACE] [paramForOne] [SDK] message: setJSONtoVT::before this.vt, debug: >><<
+ LOG  [ACE] [paramForOne] [SDK] message: setJSONtoVT::after this.vt, debug: >><<, info: {
+  "ac1_buyCount": "0",
+  "ac1_buyTimeTS": "0",
+  "ac1_random6BuyTimeTS": "000000",
+  "ac1_visitCount": "0",
+  "ac1_vTS": "0",
+  "ac1_random6VTS": "000000",
+  "ac1_pcStamp": "1628074273671",
+  "ac1_random6pcStamp": "493711"
+}
+ LOG  [ACE] [paramUtilForOne] [SDK] message: Promise.all res:, debug: >><<, info: [
+  {
+    "code": 200,
+    "result": "Success"
+  }
+]
+ LOG  [ACE] [vt] [SDK] message: existed pcStamp: 1628074273671493711, debug: >><<
+ LOG  [ACE] [comInit] [SDK] message: SDK init step one result:, debug: >><<, info: {
+  "taskHash": "0003",
+  "code": 200,
+  "message": "SDK init step one done",
+  "apiName": "init"
+}
+ LOG  [ACE] [comInit] [SDK] message: SDK init step two request policy, debug: >><<
+ LOG  [ACE] [taskAdap] [SDK] message: in doWork, debug: >><<
+ LOG  [ACE] [pTask] [SDK] message: doWork: Policy, debug: >><<
+ LOG  [ACE] [taskAdap] [SDK] message: in doWork::in cb, debug: >><<, info: {
+  "taskHash": "1000::0011",
+  "code": 200,
+  "message": "Done doWork to policy.",
+  "apiName": "Policy"
+}
+ LOG  [ACE] [taskAdap] [SDK] message: in didWork, resultDoWork: true, debug: >><<
+ LOG  [ACE] [pTask] [SDK] message: didWork: Policy, debug: >><<
+ LOG  [ACE] [Net] [SDK] message: networkRequestTypeToParams requestType: POLICY, currentNetworkMode:HOME_dev, debug: >><<
+ LOG  [ACE] [Net] [SDK] message: request requestHeaders:, debug: >><<, info: {
+  "CP-Application-Id": "com.ch02_4",
+  "CP-Request-Cid": "100341",
+  "CP-Request-Platform": "android",
+  "CP-Request-Id": "100341",
+  "CP-Request-Time": "1628074329776",
+  "CP-Request-Version": "0.0.164"
+}
+ LOG  [ACE] [APIForPolicy] [SDK] message: in requestToPolicy, completed, debug: >><<
+ LOG  [ACE] [pTask] [SDK] message: completed: Policy, debug: >><<
+ LOG  [ACE] [APIForPolicy] [SDK] message: completed, before savePolicy, debug: >><<
+ LOG  [ACE] [paramUtilForPolicy] [SDK] message: Receive policy., debug: >><<
+ LOG  [ACE] [paramUtilForPolicy] [SDK] message: done save policy., debug: >><<, info: {
+  "cpAllow": "*",
+  "cpApp": 0,
+  "cpCid": "dummyCid",
+  "cpDebug": "0",
+  "cpDomain": "http://192.168.0.4:52274/",
+  "cpPrivate": "0",
+  "cpSourceIP": "127.0.0.1",
+  "toastAppKey": "1iAMEe1l2dAylAF1",
+  "cpCrashDomain": "http://192.168.0.4:52274/"
+}
+ LOG  [ACE] [APIForPolicy] [SDK] message: completed, after savePolicy, debug: >><<
+ LOG  [ACE] [pTower] [SDK] message: setIsCompletePolicy, isCompletePolicy: true, isSucceedRequestPolicy: true, debug: >><<
+ LOG  [ACE] [pTower] [SDK] message: isEnable of policy: true, debug: >><<
+ LOG  [ACE] [pTower] [SDK] message: isDisabled, alreadyIsCompletePolicy: false, isSDKEnabled: true, debug: >><<
+ LOG  [ACE] [pTask] [SDK] message: doneWork: Policy, debug: >><<
+ LOG  SDK + Promise 초기화::in then!!
+ LOG  response: {"taskHash":"1628074329759","code":200,"message":"done","apiName":"Policy","reseponse":{}}∂
+ ∂
