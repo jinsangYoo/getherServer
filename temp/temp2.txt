@@ -21,5 +21,4 @@ installReferrer: utm_source=google-play&utm_medium=organic
   "code": 1031,
   "message": "Not found policy information.",
   "apiName": "event"
->>>>>>> 8c7ac045d0445e461cfdc0eae583ce4218bceb36
 }
