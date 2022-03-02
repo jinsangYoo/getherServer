@@ -1,4 +1,49 @@
-451
-956
-482
-752
+  "url": "mac",
+  "method": "GET",
+  "baseURL": "https://gmb.acecounter.com",
+  "headers": {},
+  "timeout": 1000,
+  "params": {
+    "adeld": "0",
+    "adid": "00000000-0000-0000-0000-000000000000",
+    "ce": "1",
+    "dm": "411*731",
+    "mid": "AK2A79936",
+    "re": 0,
+    "ref": "bookmark",
+    "ri": "1",
+    "st": "1632809760078986817|1632809760078986817|0|0000000",
+    "sts": "1632809760078986817",
+    "sv": "ACA0.0.2440",
+    "tp": "site",
+    "tz": "20",
+    "url": "com.acecounter.android.acetmtest/Send PL + CB >361<",
+    "vk": 1,
+    "vt": "1631795313396682204|10|1631791160682238931|1|1631791160089520179"
+  }
+}
+
+  "url": "mac",
+  "method": "GET",
+  "baseURL": "https://gmb.acecounter.com",
+  "headers": {},
+  "timeout": 1000,
+  "params": {
+    "adeld": "0",
+    "adid": "a72cc5d1c51763b6",
+    "ce": "1",
+    "dm": "411*731",
+    "mid": "AK2A79936",
+    "re": 0,
+    "ref": "bookmark",
+    "ri": "1",
+    "st": "1632810265534101971|1632810265534101971|0|0000000",
+    "sts": "1632810265534101971",
+    "sv": "ACA0.0.2450",
+    "tp": "site",
+    "tz": "20",
+    "url": "com.acecounter.android.acetmtest/Send PL + Promise 클릭! >>804<<",
+    "vk": 1,
+    "vt": "1632809760078986817|11|1631791160682238931|1|1631791160089520179"
+  }
+}

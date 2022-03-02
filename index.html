@@ -110,6 +110,35 @@
         }
       }
 
+      function getQueryVar(source, value) {
+        var query = {};
+        var pairs = (source[0] === '?' ? source.substr(1) : source).split('&');
+        for (var i = 0; i < pairs.length; i++) {
+          var pair = pairs[i].split('=');
+          query[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1] || '');
+        }
+        return query;
+      }
+
+      function testKwParsing() {
+        console.log('1. market://&referrer=kw=123456:');
+        console.log(JSON.stringify(getQueryVar('market://&referrer=kw=123456', 'kw'), null, 2));
+        console.log('2. market://&referrer=kw%3D223457:');
+        console.log(JSON.stringify(getQueryVar('market://&referrer=kw%3D223457', 'kw'), null, 2));
+        console.log('3. market://details?id=com.acecounter.android.acetmtest&referrer=tk%3D123456%26gsck%3D99:');
+        console.log(JSON.stringify(getQueryVar('market://details?id=com.acecounter.android.acetmtest&referrer=tk%3D123456%26gsck%3D99', 'kw'), null, 2));
+        console.log('4. kw=123456');
+        let normal = getQueryVar('kw=123456', 'kw')
+        console.log(JSON.stringify(normal, null, 2));
+        console.log(normal['ke']);
+        console.log(normal['kw']);
+        console.log('5. kw%3D223457');
+        let notNormal = getQueryVar('kw%3D223457', 'kw')
+        console.log(JSON.stringify(notNormal, null, 2));
+        console.log(notNormal['ke']);
+        console.log(notNormal['kw']);
+      }
+
       function _loader() {
         console.log('in loaded use load event');
         firstWork();
@@ -223,6 +252,7 @@
     <a href="market://details?id=com.acecounter.android.acetmtest&referrer=tk%253D123456">install referrer market://&referrer=tk%253D123456</a><br /><br />
     <a href="https://play.google.com/store/apps/details?id=com.acecounter.android.acetmtest&referrer=kw=123456">install referrer https://&referrer=kw=123456</a><br /><br />
     <a href="https://play.google.com/store/apps/details?id=com.acecounter.android.acetmtest&referrer=kw%3D123456">install referrer https://&referrer=kw%3D123456</a><br /><br />
+    <input type="button" onclick="testKwParsing()" value="testKwParsing()" /><br /><br />
 
     <input type="button" onclick="callNativeMethod1()" value="네이티브 함수 호출 노 파라미터, 리턴값" /><br /><br />
     <input type="button" onclick="callNativeMethod2()" value="네이티브 함수 호출 여러 파라미터 보내기" /><br /><br />

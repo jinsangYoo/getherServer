@@ -482,6 +482,21 @@
         }
       }
 
+      function getQueryVar(source, value) {
+        var regex = new RegExp('.*?[&\\?]' + value + '=(.*?)&.*')
+
+        var val = source.replace(regex, '$1')
+        return val == source ? false : val
+      }
+
+      function testKwParsing() {
+        console.log('1. market://&referrer=kw=123456: >>' + getQueryVar('market://&referrer=kw=123456') + '<<');
+        console.log('2. market://&referrer=kw%3D223457: >>' + getQueryVar('market://&referrer=kw%3D223457') + '<<');
+        console.log('3. market://details?id=com.acecounter.android.acetmtest&referrer=tk%3D123456%26gsck%3D99: >>' + getQueryVar('market://details?id=com.acecounter.android.acetmtest&referrer=tk%3D123456%26gsck%3D99') + '<<');
+        console.log('4. kw=123456: >>' + getQueryVar('kw=123456') + '<<');
+        console.log('5. market://&referrer=kw%3D223457: >>' + getQueryVar('market://&referrer=kw%3D223457') + '<<');
+      }
+
       function _loader() {
         console.log('in loaded use load event');
         firstWork();
@@ -597,6 +612,7 @@
     <a href="market://details?id=com.acecounter.android.acetmtest&referrer=tk%253D123456">install referrer market://&referrer=tk%253D123456</a><br /><br />
     <a href="https://play.google.com/store/apps/details?id=com.acecounter.android.acetmtest&referrer=kw=123456">install referrer https://&referrer=kw=123456</a><br /><br />
     <a href="https://play.google.com/store/apps/details?id=com.acecounter.android.acetmtest&referrer=kw%3D123456">install referrer https://&referrer=kw%3D123456</a><br /><br />
+    <input type="button" onclick="testKwParsing()" value="testKwParsing()" /><br /><br />
 
     <input type="button" onclick="callNativeMethod1()" value="네이티브 함수 호출 노 파라미터, 리턴값" /><br /><br />
     <input type="button" onclick="callNativeMethod2()" value="네이티브 함수 호출 여러 파라미터 보내기" /><br /><br />
@@ -614,7 +630,7 @@
 
 
 
-    <a href="ACE100341://open?tk=FP:iPhone.IOS113.10_78_101_141.1524124804000.KO&as=678&ms=876&gsck=1523599187642121678&uss=12&oko=jinsang_2&pl=진상&nac_cv=909">ACE100341 딥링크 2</a> <br /><br />
+    <a href="ACE100341://open?tk=FP:iPhone.IOS113.10_78_101_141.1524124804000.KO&as=678&ms=876&gsck=1523599187642121678&uss=12&oko=jinsang_2&pl=진상&nac_cv=909">ACE100341 딥링크 2</a> <br /><br>
     <a href="ACE100423://open?kw=FP2:iPhone.IOS113.10_78_101_141.1524124804000.KO&as=678&ms=876&gsck=1523599187642121678&uss=12&oko=jinsang_1&pl=진상&nac_cv=909">ACE100423 딥링크 2</a> <br /><br />
     <a href="AZ1A43024://open?kw=FP303:iPhone.IOS113.10_78_101_141.1524124804000.KO&as=678&ms=876&gsck=1523599187642121678&uss=12&oko=jinsang&pl=진상&nac_cv=909">AZ1A43024 딥링크 303</a> <br /><br />
 
@@ -624,14 +640,14 @@
 
 
 
-    <a href="intent://open?tk=5753005&gsck=1547600260100325882&as=888&test1=sdsd&test2=234#Intent;scheme=ACE100341;end;">안드로이드 딥링크</a></a><br /><br />
+    <a href="intent://open?tk=5753005&gsck=1547600260100325882&as=888&test1=sdsd&test2=234#Intent;scheme=ACE100341;end;">안드로이드 딥링크</a><br /><br>
 
     <a href="ACE100341://open?tk=9sample&as=32341&ms=61234&referrer=121911&gsck=24353634">ACE100341 딥링크</a><br /><br /><br /><br />
     <a href="boyeproject://deeplink?tk=9sample&kw=42&ms=61234&referrer=121911&gsck=24353634">boyeproject 42 딥링크</a><br /><br /><br /><br />
     <a href="index3.html">index3.html</a><br /><br />
     <input type="button" onclick="getParametersByNameAndAlert('aa')" value="aa 파라미터 파싱" /><br /><br />
     <input type="button" onclick="getParametersAndAlert()" value="전체 파라미터 파싱" /><br /><br />
-    <a href="https://mbr.acecounter.com:10000/v1/bridge?sid=126448&nac_md=normal_mkt&nac_cpi=6&nac_m=1&nac_c=6&nac_sm=landing_test_180906&nac_s=124">현대캐피탈 유니버셜링크</a><br /><br />
+    <a href="https://mbr.acecounter.com:10000/v1/bridge?sid=126448&nac_md=normal_mkt&nac_cpi=6&nac_m=1&nac_c=6&nac_sm=landing_test_180906&nac_s=124">현대캐피탈 유니버셜링크1111</a><br /><br />
 
     <!-- <iframe src="index3.html" width='100%' height='100%'></iframe>
     <iframe src="index3.html" width='100%' height='100%'></iframe>
