@@ -1,4 +1,24 @@
-451
-956
-482
-752
+installReferrer: utm_source=google-play&utm_medium=organic
+
+ LOG  [ACE] [SDK] [2022-02-28T06:52:11.697Z] [I] [ACS]: ACS.waitQueue.length: 0, debug: >><<
+ LOG  [ACE] [SDK] [2022-02-28T06:52:11.698Z] [I] [ACS]: ACS.waitQueue.push: event, >>>>Login<< >>972<<<<, debug: >><<
+ LOG  [ACE] [SDK] [2022-02-28T06:52:11.748Z] [I] [comInit]: SDK mode: development, network mode: Pro, debug: >><<
+ LOG  [ACE] [SDK] [2022-02-28T06:52:11.748Z] [I] [comInit]: NHN DATA SDK version: 0.0.263, debug: >><<
+ LOG  [ACE] [SDK] [2022-02-28T06:52:11.749Z] [I] [comInit]: Start init SDK., debug: >><<
+ LOG  [ACE] [SDK] [2022-02-28T06:52:11.749Z] [D] [comInit]: AceConfiguration information:, debug: >><<, info: {
+  "platform": "ACONE",
+  "key": "AK2A79936",
+  "debug": true,
+  "enablePrivacyPolicy": false
+}
+ LOG  [ACE] [SDK] [2022-02-28T06:52:11.754Z] [D] [paramUtilForOne]: tz: 20, debug: >><<
+ LOG  컴포넌트가 화면에 나타남
+ LOG  enabled: true, Authorization status: 1
+ LOG  1: 수락
+ LOG  >>Login<< >>972<<::in reject!!
+ LOG  err: {
+  "taskHash": "event::0404",
+  "code": 1031,
+  "message": "Not found policy information.",
+  "apiName": "event"
+}
