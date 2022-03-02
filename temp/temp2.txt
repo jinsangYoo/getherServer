@@ -1,49 +1,25 @@
-  "url": "mac",
-  "method": "GET",
-  "baseURL": "https://gmb.acecounter.com",
-  "headers": {},
-  "timeout": 1000,
-  "params": {
-    "adeld": "0",
-    "adid": "00000000-0000-0000-0000-000000000000",
-    "ce": "1",
-    "dm": "411*731",
-    "mid": "AK2A79936",
-    "re": 0,
-    "ref": "bookmark",
-    "ri": "1",
-    "st": "1632809760078986817|1632809760078986817|0|0000000",
-    "sts": "1632809760078986817",
-    "sv": "ACA0.0.2440",
-    "tp": "site",
-    "tz": "20",
-    "url": "com.acecounter.android.acetmtest/Send PL + CB >361<",
-    "vk": 1,
-    "vt": "1631795313396682204|10|1631791160682238931|1|1631791160089520179"
-  }
-}
+installReferrer: utm_source=google-play&utm_medium=organic
 
-  "url": "mac",
-  "method": "GET",
-  "baseURL": "https://gmb.acecounter.com",
-  "headers": {},
-  "timeout": 1000,
-  "params": {
-    "adeld": "0",
-    "adid": "a72cc5d1c51763b6",
-    "ce": "1",
-    "dm": "411*731",
-    "mid": "AK2A79936",
-    "re": 0,
-    "ref": "bookmark",
-    "ri": "1",
-    "st": "1632810265534101971|1632810265534101971|0|0000000",
-    "sts": "1632810265534101971",
-    "sv": "ACA0.0.2450",
-    "tp": "site",
-    "tz": "20",
-    "url": "com.acecounter.android.acetmtest/Send PL + Promise 클릭! >>804<<",
-    "vk": 1,
-    "vt": "1632809760078986817|11|1631791160682238931|1|1631791160089520179"
-  }
+ LOG  [ACE] [SDK] [2022-02-28T06:52:11.697Z] [I] [ACS]: ACS.waitQueue.length: 0, debug: >><<
+ LOG  [ACE] [SDK] [2022-02-28T06:52:11.698Z] [I] [ACS]: ACS.waitQueue.push: event, >>>>Login<< >>972<<<<, debug: >><<
+ LOG  [ACE] [SDK] [2022-02-28T06:52:11.748Z] [I] [comInit]: SDK mode: development, network mode: Pro, debug: >><<
+ LOG  [ACE] [SDK] [2022-02-28T06:52:11.748Z] [I] [comInit]: NHN DATA SDK version: 0.0.263, debug: >><<
+ LOG  [ACE] [SDK] [2022-02-28T06:52:11.749Z] [I] [comInit]: Start init SDK., debug: >><<
+ LOG  [ACE] [SDK] [2022-02-28T06:52:11.749Z] [D] [comInit]: AceConfiguration information:, debug: >><<, info: {
+  "platform": "ACONE",
+  "key": "AK2A79936",
+  "debug": true,
+  "enablePrivacyPolicy": false
+}
+ LOG  [ACE] [SDK] [2022-02-28T06:52:11.754Z] [D] [paramUtilForOne]: tz: 20, debug: >><<
+ LOG  컴포넌트가 화면에 나타남
+ LOG  enabled: true, Authorization status: 1
+ LOG  1: 수락
+ LOG  >>Login<< >>972<<::in reject!!
+ LOG  err: {
+  "taskHash": "event::0404",
+  "code": 1031,
+  "message": "Not found policy information.",
+  "apiName": "event"
+>>>>>>> 8c7ac045d0445e461cfdc0eae583ce4218bceb36
 }
