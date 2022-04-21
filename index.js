@@ -211,6 +211,8 @@ app.get("/policy", function (req, res) {
   res.setHeader("Cp-Repeat-Interval", "21600")
   res.setHeader("Cp-LNC-Id", "1iAMEe1l2dAylAF1")
 
+  console.log("***** res.headers: >>" + JSON.stringify(res.getHeaders(), null, 2) + "<<")
+
   res.send("done")
 })
 
