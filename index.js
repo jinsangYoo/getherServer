@@ -7,6 +7,11 @@ var fs = require("fs")
 const colors = require("colors")
 const cors = require("cors")
 app.use(cors())
+// const corsOptions = {
+//   exposedHeaders: "Cp-Allow",
+// }
+
+// app.use(cors(corsOptions))
 
 var format = require("date-format")
 const jwt = require("jsonwebtoken")
@@ -191,12 +196,12 @@ app.get("/policy", function (req, res) {
 
   res.header("Access-Control-Allow-Origin", "*")
   // res.header("Access-Control-Allow-Credentials", false);
-  // res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
+  res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS")
   // res.header("Access-Control-Max-age", 3600);
-  // res.header(
-  //   "Access-Control-Allow-Headers",
-  //   "Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Methods, Access-Control-Request-Headers, access-control-allow-headers, access-control-allow-methods, access-control-allow-origin, access-control-max-age, Access-Control-Allow-Credentials"
-  // );
+  res.header(
+    "Access-Control-Expose-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Methods, Access-Control-Request-Headers, access-control-allow-headers, access-control-allow-methods, access-control-allow-origin, access-control-max-age, Access-Control-Allow-Credentials, Cp-Allow, Cp-App, Cp-Cid, Cp-Debug, Cp-Domain, Cp-Private, Cp-Source-Ip, Cp-Force-Stop, Cp-Force-Delete-FailedLogs, Cp-Crash-Domain, Cp-Repeat-Interval, Cp-LNC-Id"
+  )
 
   res.setHeader("Cp-Allow", "*")
   res.setHeader("Cp-App", "0")
