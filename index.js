@@ -278,6 +278,7 @@ let logListener = function (req, res) {
 }
 app.get("/mac", logListener)
 app.get("/log", logListener)
+app.get("/log/mac", logListener)
 
 // post APNS 전송때 전송 토큰 만드는 로직
 app.get("/sign", function (req, res) {
