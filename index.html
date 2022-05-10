@@ -5,6 +5,57 @@
     <title>index page</title>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script>
+      function getCookie(name) {
+        let matches = document.cookie.match(new RegExp("(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"));
+        return matches ? decodeURIComponent(matches[1]) : undefined;
+      }
+
+      function setCookie(name, value, options = {}) {
+        options = {
+          path: '/',
+          // add other defaults here if necessary
+          ...options
+        };
+        
+        if (options.expires instanceof Date) {
+          options.expires = options.expires.toUTCString();
+        }
+        
+        let updatedCookie = encodeURIComponent(name) + "=" + encodeURIComponent(value);
+        
+        for (let optionKey in options) {
+          updatedCookie += "; " + optionKey;
+          let optionValue = options[optionKey];
+          if (optionValue !== true) {
+            updatedCookie += "=" + optionValue;
+          }
+        }
+        
+        document.cookie = updatedCookie;
+      }
+
+      function deleteCookie(name) {
+        setCookie(name, "", {
+          'max-age': -1
+        })
+      }
+
+      function getCookieForBTN() {
+        return alert(getCookie('max-age'))
+      }
+
+      function setCookieForBTN() {
+        setCookie('max-age', generateRandomIntegerInRange(1, 100))
+      }
+
+      function deleteCookieForBTN() {
+        deleteCookie('max-age')
+      }
+
+      function generateRandomIntegerInRange(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+
       function getUserAgent() {
         // alert('navigator.userAgent: ' + navigator.userAgent);
         console.log('navigator.userAgent: ' + navigator.userAgent);
@@ -162,16 +213,29 @@
   <body onload="_loader()">
   <!-- <body> -->
     <h1>진상 로컬 index page!!</h1>
+    <button onclick="getCookieForBTN();">getCookieForBTN()</button><br><br>
+    <button onclick="setCookieForBTN();">setCookieForBTN()</button><br><br>
+    <button onclick="deleteCookieForBTN();">deleteCookieForBTN()</button><br><br>
     <div id="alertDivForiOS">For iOS</div>
+    <hr width="100%" color="#ff0000" noshade />
     <div id="alertDivForAOS">For AOS</div>
+    <hr width="100%" color="#ff0000" noshade />
     <div id="alertDivForComment">For Comment</div>
+    <hr width="100%" color="#ff0000" noshade />
     <div id="alertDivForConsoleLog_01">For ConsoleLog_01</div>
+    <hr width="100%" color="#ff0000" noshade />
     <div id="alertDivForConsoleLog_02">For ConsoleLog_02</div>
+    <hr width="100%" color="#ff0000" noshade />
     <div id="alertDivForConsoleLog_03">For ConsoleLog_03</div>
+    <hr width="100%" color="#ff0000" noshade />
     <div id="alertDivForConsoleLog_04">For ConsoleLog_04</div>
+    <hr width="100%" color="#ff0000" noshade />
     <div id="alertDivForConsoleLog_05">For ConsoleLog_05</div>
+    <hr width="100%" color="#ff0000" noshade />
     <div id="alertDivForConsoleLog_06">For ConsoleLog_06</div>
+    <hr width="100%" color="#ff0000" noshade />
     <div id="alertDivForConsoleLog_07">For ConsoleLog_07</div>
+    <hr width="100%" color="#ff0000" noshade />
 
     <a href="index2.html">index2.html</a><br /><br />
     <a href="index3.html">index3.html</a><br /><br />
