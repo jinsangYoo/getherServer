@@ -103,7 +103,26 @@
         $('#alertDivForConsoleLog_02').text('adid: ' + adid + ', adeld: ' + adeld);
       }
       
+      const cutstomTitle = '바뀌어랏!!!';
       function firstWork() {
+        const container1 = document.getElementById('container1');
+        container1.innerHTML = `
+<h2>${cutstomTitle}</h2>
+<p>copyright ${new Date().getYear()} | The HTML5 Blog</p>
+`;
+
+      const cutstomfirstName = '11111';
+      const cutstomevent = '222222';
+      const cutstomqty = '3333333';
+      const visit = `
+        ${cutstomfirstName} 님께,
+        
+        ${cutstomevent} 티켓 ${cutstomqty} 건을 구매해주셔서 감사합니다.
+      `;
+      const container2 = document.getElementById('container2');
+
+      container2.innerText = visit;
+
         $('#alertDivForComment').text('>>' + window.navigator.platform + '<<');
         $('#alertDivForConsoleLog_04').text('>>' + navigator.userAgent + '<<');
         $('#alertDivForConsoleLog_05').text('>>' + navigator.userAgent.search(/crios/i) + '<<');
@@ -213,6 +232,12 @@
   <body onload="_loader()">
   <!-- <body> -->
     <h1>진상 로컬 index page!!</h1>
+    <div id="container1">test for react study 1</div>
+    
+    <p id="container2">test for react study 2</p>
+
+    <hr>
+
     <button onclick="getCookieForBTN();">getCookieForBTN()</button><br><br>
     <button onclick="setCookieForBTN();">setCookieForBTN()</button><br><br>
     <button onclick="deleteCookieForBTN();">deleteCookieForBTN()</button><br><br>
