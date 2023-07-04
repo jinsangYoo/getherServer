@@ -1,12 +1,53 @@
-      const cutstomfirstName = '11111';
-      const cutstomevent = '222222';
-      const cutstomqty = '3333333';
-      const container2 = document.getElementById('container2');
-      container2.innerHTML = `
-        ${cutstomfirstName} 님께,
-        
-        ${cutstomevent} 티켓 ${cutstomqty} 건을 구매해주셔서 감사합니다.
-`;
+require_relative '../node_modules/react-native/scripts/react_native_pods'
+require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
+
+platform :ios, '12.4'
+install! 'cocoapods', :deterministic_uuids => false
+
+target 'rnForNHNDATA' do
+  config = use_native_modules!
+
+  flags = get_default_flags()
+
+  pod 'Firebase', :modular_headers => true
+  pod 'FirebaseCoreInternal', :modular_headers => true
+  pod 'GoogleUtilities', :modular_headers => true
+  pod 'FirebaseCore', :modular_headers => true
+  pod 'FirebaseCoreExtension', :modular_headers => true
+  pod 'FirebaseInstallations', :modular_headers => true
+  pod 'GoogleDataTransport', :modular_headers => true
+
+  use_react_native!(
+    :path => config[:reactNativePath],
+    # to enable hermes on iOS, change `false` to `true` and then install pods
+    :hermes_enabled => true,
+    :fabric_enabled => flags[:fabric_enabled],
+  )
 
 
-<p id="container2">test for react study 2</p>
+
+
+
+
+
+
+
+  target 'rnForNHNDATATests' do
+    inherit! :complete
+    # Pods for testing
+  end
+
+  # Enables Flipper.
+  #
+  # Note that if you have use_frameworks! enabled, Flipper will not work and
+  # you should disable the next line.
+  post_install do |installer|
+    react_native_post_install(
+      installer,
+      # Set `mac_catalyst_enabled` to `true` in order to apply patches
+      # necessary for Mac Catalyst builds
+      :mac_catalyst_enabled => false
+    )
+    __apply_Xcode_12_5_M1_post_install_workaround(installer)
+  end
+end
