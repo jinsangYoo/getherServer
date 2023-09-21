@@ -1,8 +1,31 @@
 {
   "applinks": {
-    "apps": [
-      "HA4JNBHU77.com.acecounter.aceappplus",
-      "HA4JNBHU77.com.rnfornhndata"
+    "details": [
+      {
+        "comment": "universal link for objective-c natvie sample app.",
+        "appIDs": [
+          "HA4JNBHU77.com.acecounter.aceappplus"
+        ],
+        "patterns": [
+          {
+            "/": "/native/*"
+          }
+        ]
+      },
+      {
+        "comment": "universal link for react-native sample app.",
+        "appIDs": [
+          "HA4JNBHU77.com.rnfornhndata"
+        ],
+        "patterns": [
+          {
+            "/": "/rn/*"
+          },
+          {
+            "/": "/com.rnfornhndata/*"
+          }
+        ]
+      }
     ]
   }
 }
