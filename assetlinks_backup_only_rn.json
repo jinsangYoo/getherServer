@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.rnfornhndata",
+      "sha256_cert_fingerprints": [
+        "78:37:57:15:CA:6F:CB:6E:30:EB:77:46:D3:8A:7D:33:83:30:AA:54:8F:54:3E:E1:9B:62:90:B1:C1:F2:45:22"
+      ]
+    }
+  }
+]
