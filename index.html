@@ -209,8 +209,45 @@
         console.log(notNormal['kw']);
       }
 
+      function sendPostMessageForDidMount() {
+        try {
+          console.log('sendPostMessageForDidMount');
+          window.parent.postMessage({ type: 'didMounted', message: 
+          '제~~~~~~알'}, 'http://localhost:3000/');
+          // console.log(window.parent.document.title);
+        } catch (e) {
+          alert(e);
+        }
+      }
+
+      function callbackForNotRoot(res) {
+        console.log('callbackForNotRoot');
+        console.log(res);
+      }
+
+      function callbackForInitInIframe(res) {
+        console.log('callbackForInitInIframe');
+        console.log(res);
+      }
+      // function callbackForInitInIframe() {
+      //   console.log('callbackForInitInIframe');
+      // }
+
+      function addListenerOnLoaded() {
+        console.log('in addListenerOnLoaded');
+        window.addEventListener("initInIframe", callbackForInitInIframe);
+        window.addEventListener('not root', callbackForNotRoot);
+      }
+
+      function removeListenerOnLoaded() {
+        console.log('in removeListenerOnLoaded');
+        window.removeEventListener("initInIframe", callbackForInitInIframe);
+        window.removeEventListener('not root', callbackForNotRoot);
+      }
+
       function _loader() {
         console.log('in loaded use load event');
+        addListenerOnLoaded();
         firstWork();
       }
 
@@ -232,6 +269,7 @@
   <body onload="_loader()">
   <!-- <body> -->
     <h1>진상 로컬 index page!!</h1>
+    <button onclick="sendPostMessageForDidMount();">sendPostMessageForDidMount()</button><br><br><br>
     <a href="http://10.77.129.54:3000" target="_self">react + next QA 웹사이트 target="_self", default</a><br /><br />
     <a href="http://10.77.129.54:3000" target="_blank">react + next QA 웹사이트 target="_blank"</a><br /><br />
     <div id="container1">test for react study 1</div>
