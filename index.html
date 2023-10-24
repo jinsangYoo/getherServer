@@ -209,10 +209,12 @@
         console.log(notNormal['kw']);
       }
 
-      function sendPostMessageForDidMount() {
+      var _token = '-1';
+      // console.log('window.parent.location: >>' + window.parent.location + '<<')
+      function sendPostMessageForDidMounted() {
         try {
-          console.log('sendPostMessageForDidMount');
-          window.parent.postMessage({ type: 'didMounted', message: 
+          console.log('sendPostMessageForDidMounted');
+          window.parent.postMessage({ type: 'ACS.didMounted', message: 
           '제~~~~~~알'}, 'http://localhost:3000/');
           // console.log(window.parent.document.title);
         } catch (e) {
@@ -220,34 +222,95 @@
         }
       }
 
+      function sendPostMessageForReqAceApp(destinationDomain) {
+        console.log('sendPostMessageForReqAceApp');
+        window.parent.postMessage({type: 'ACS.reqAceApp', token:_token, location: self.location.toString()}, destinationDomain)
+      }
+
+      function callbackForDidMounted(res) {
+        console.log('callbackForDidMounted');
+        console.log(res);
+      }
+
+      function callbackForDidAddedToMap(res) {
+        console.log('callbackForDidAddedToMap');
+        console.log(JSON.stringify(res, null, 2));
+        _token = res.token
+      }
+
       function callbackForNotRoot(res) {
         console.log('callbackForNotRoot');
-        console.log(res);
+        console.log(JSON.stringify(res, null, 2));
       }
 
       function callbackForInitInIframe(res) {
         console.log('callbackForInitInIframe');
         console.log(res);
       }
-      // function callbackForInitInIframe() {
-      //   console.log('callbackForInitInIframe');
-      // }
+
+      function callbackForReqAceApp(res) {
+        console.log('callbackForReqAceApp');
+        console.log(res);
+      }
+
+      function callbackForResAceApp(res) {
+        console.log('callbackForResAceApp');
+        console.log(JSON.stringify(res, null, 2));
+      }
+
+      function handleMessage(e) {
+        if (event.origin !== 'http://localhost:3000') {
+          console.log(`event.origin: ${event.origin}`)
+          return
+        }
+
+        switch (e.data.type) {
+          case 'ACS.didMounted':
+            callbackForDidMounted(e.data)
+            break
+          case 'ACS.didAddedToMap':
+            callbackForDidAddedToMap(e.data)
+            break
+          case 'ACS.initInIframe':
+            callbackForInitInIframe(e.data)
+            break
+          case 'ACS.notRoot':
+            callbackForNotRoot(e.data)
+            break
+          case 'ACS.reqAceApp':
+            callbackForReqAceApp(e.data)
+            break
+          case 'ACS.resAceApp':
+            callbackForResAceApp(e.data)
+            break
+          default:
+          break
+        }
+      }
 
       function addListenerOnLoaded() {
         console.log('in addListenerOnLoaded');
-        window.addEventListener("initInIframe", callbackForInitInIframe);
-        window.addEventListener('not root', callbackForNotRoot);
+        window.addEventListener("message", handleMessage);
       }
 
       function removeListenerOnLoaded() {
         console.log('in removeListenerOnLoaded');
-        window.removeEventListener("initInIframe", callbackForInitInIframe);
-        window.removeEventListener('not root', callbackForNotRoot);
+        window.removeEventListener("message", handleMessage);
+      }
+
+      function sdkPosition(destinationDomain) {
+        window.parent.postMessage({type: 'ACS.didMounted', location: self.location.toString()}, destinationDomain)
       }
 
       function _loader() {
         console.log('in loaded use load event');
         addListenerOnLoaded();
+        sdkPosition('http://localhost:3000/')
+        document.getElementById("sendPostMessageForReqAceApp").addEventListener("click", function() {
+          sendPostMessageForReqAceApp('http://localhost:3000/')
+        })
+        // window.parent.postMessage({type: 'ACS.initInIframe'}, 'http://localhost:3000/')
+
         firstWork();
       }
 
@@ -269,7 +332,8 @@
   <body onload="_loader()">
   <!-- <body> -->
     <h1>진상 로컬 index page!!</h1>
-    <button onclick="sendPostMessageForDidMount();">sendPostMessageForDidMount()</button><br><br><br>
+    <button onclick="sendPostMessageForDidMounted();">sendPostMessageForDidMounted()</button><br>
+    <button id="sendPostMessageForReqAceApp">sendPostMessageForReqAceApp()</button><br><br><br>
     <a href="http://10.77.129.54:3000" target="_self">react + next QA 웹사이트 target="_self", default</a><br /><br />
     <a href="http://10.77.129.54:3000" target="_blank">react + next QA 웹사이트 target="_blank"</a><br /><br />
     <div id="container1">test for react study 1</div>
