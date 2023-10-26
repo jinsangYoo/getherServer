@@ -413,6 +413,12 @@ app.get('/sign', function (req, res) {
 })
 
 let port = 52274
+if (process.argv.length > 2) {
+  // console.log(`process.argv.length: ${process.argv.length}`.bgGreen.black)
+  port = process.argv[2]
+  console.log(`전달받은 ${port} 포트로 listen 합니다.`.bgRed.black)
+}
+
 http.createServer(app).listen(port, function () {
   console.log(`Express server listening on port(${port})`.bgYellow.black)
 })
