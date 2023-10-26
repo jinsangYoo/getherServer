@@ -216,7 +216,6 @@
           console.log('sendPostMessageForDidMounted');
           window.parent.postMessage({ type: 'ACS.didMounted', message: 
           '제~~~~~~알'}, 'http://localhost:3000/');
-          // console.log(window.parent.document.title);
         } catch (e) {
           alert(e);
         }
@@ -224,6 +223,8 @@
 
       function sendPostMessageForReqAceApp(destinationDomain) {
         console.log('sendPostMessageForReqAceApp');
+        console.log('destinationDomain: ' + destinationDomain);
+        console.log('params window.parent.postMessage\'s: ' + JSON.stringify({type: 'ACS.reqAceApp', token:_token, location: self.location.toString()}, null, 2));
         window.parent.postMessage({type: 'ACS.reqAceApp', token:_token, location: self.location.toString()}, destinationDomain)
       }
 
@@ -305,7 +306,7 @@
       function _loader() {
         console.log('in loaded use load event');
         addListenerOnLoaded();
-        sdkPosition('http://localhost:3000/')
+        // sdkPosition('http://localhost:3000/')
         document.getElementById("sendPostMessageForReqAceApp").addEventListener("click", function() {
           sendPostMessageForReqAceApp('http://localhost:3000/')
         })
