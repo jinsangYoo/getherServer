@@ -215,41 +215,31 @@
       }
 
       function reqAceApp(destinationDomain) {
-        console.log('in reqAceApp');
-        console.log('destinationDomain: ' + destinationDomain);
-        console.log('params: ' + JSON.stringify({type: 'ACS.reqAceApp', token:_token, location: self.location.toString()}, null, 2));
+        console.log('in reqAceApp in getherServer');
+        console.log('destinationDomain in getherServer: ' + destinationDomain);
+        console.log('params in getherServer: ' + JSON.stringify({type: 'ACS.reqAceApp', token:_token, location: self.location.toString()}, null, 2));
         window.parent.postMessage({type: 'ACS.reqAceApp', token:_token, location: self.location.toString()}, destinationDomain)
       }
 
-      function callbackForDidMounted(res) {
-        console.log('callbackForDidMounted');
+      function _callback_in_getherServer(res) {
+        console.log('_callback_in_getherServer');
         console.log(res);
       }
 
-      function callbackForDidAddedToMap(res) {
-        console.log('callbackForDidAddedToMap');
+      function callbackForDidAddedToMap_in_getherServer(res) {
+        console.log('callbackForDidAddedToMap_in_getherServer');
         console.log(JSON.stringify(res, null, 2));
         _token = res.token
         reqAceApp('http://localhost:3000/')
       }
 
-      function callbackForNotRoot(res) {
-        console.log('callbackForNotRoot');
+      function callbackForReqAceApp_in_getherServer(res) {
+        console.log('callbackForReqAceApp_in_getherServer');
         console.log(JSON.stringify(res, null, 2));
       }
 
-      function callbackForInitInIframe(res) {
-        console.log('callbackForInitInIframe');
-        console.log(res);
-      }
-
-      function callbackForReqAceApp(res) {
-        console.log('callbackForReqAceApp');
-        console.log(res);
-      }
-
-      function callbackForResAceApp(res) {
-        console.log('callbackForResAceApp');
+      function callbackForResAceApp_in_getherServer(res) {
+        console.log('callbackForResAceApp_in_getherServer');
         console.log(JSON.stringify(res, null, 2));
       }
 
@@ -260,52 +250,39 @@
         }
 
         switch (e.data.type) {
-          case 'ACS.didMounted':
-            callbackForDidMounted(e.data)
-            break
           case 'ACS.didAddedToMap':
-            callbackForDidAddedToMap(e.data)
-            break
-          case 'ACS.initInIframe':
-            callbackForInitInIframe(e.data)
-            break
-          case 'ACS.notRoot':
-            callbackForNotRoot(e.data)
+            callbackForDidAddedToMap_in_getherServer(e.data)
             break
           case 'ACS.reqAceApp':
-            callbackForReqAceApp(e.data)
+            callbackForReqAceApp_in_getherServer(e.data)
             break
           case 'ACS.resAceApp':
-            callbackForResAceApp(e.data)
+            callbackForResAceApp_in_getherServer(e.data)
             break
           default:
           break
         }
       }
 
-      function addListenerOnLoaded() {
-        console.log('in addListenerOnLoaded');
+      function addListenerOnLoaded_in_getherServer() {
+        console.log('in addListenerOnLoaded_in_getherServer');
         window.addEventListener("message", handleMessage);
       }
 
-      function removeListenerOnLoaded() {
-        console.log('in removeListenerOnLoaded');
+      function removeListenerOnLoaded_in_getherServer() {
+        console.log('in removeListenerOnLoaded_in_getherServer');
         window.removeEventListener("message", handleMessage);
       }
 
-      function sdkPosition(destinationDomain) {
-        window.parent.postMessage({type: 'ACS.didMounted', location: self.location.toString()}, destinationDomain)
-      }
-
       function _loader() {
-        console.log('in loaded use load event');
-        addListenerOnLoaded();
+        console.log('in loaded use load event in getherServer');
+        addListenerOnLoaded_in_getherServer();
 
         firstWork();
       }
 
       $(function() {
-        console.log('in ready use jquery');
+        console.log('in ready use jquery in getherServer');
         // try {
         //   // $('#alertDivForiOS').text('testtest: ' + testtest);
         //   var key = window.ace_and_interface.getKey()
