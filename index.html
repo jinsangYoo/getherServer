@@ -244,10 +244,7 @@
       }
 
       function handleMessage(e) {
-        if (event.origin !== 'http://localhost:3000') {
-          console.log(`event.origin: ${event.origin}`)
-          return
-        }
+        if (event.origin !== 'http://localhost:3000') return
 
         switch (e.data.type) {
           case 'ACS.didAddedToMap':
