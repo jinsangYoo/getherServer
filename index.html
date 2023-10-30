@@ -226,8 +226,8 @@
         console.log(res);
       }
 
-      function callbackForDidAddedToMap_in_getherServer(res) {
-        console.log('callbackForDidAddedToMap_in_getherServer');
+      function callbackForDidAddToMap_in_getherServer(res) {
+        console.log('callbackForDidAddToMap_in_getherServer');
         console.log(JSON.stringify(res, null, 2));
         _token = res.token
         reqAceApp('http://localhost:3000/')
@@ -247,8 +247,8 @@
         if (event.origin !== 'http://localhost:3000') return
 
         switch (e.data.type) {
-          case 'ACS.didAddedToMap':
-            callbackForDidAddedToMap_in_getherServer(e.data)
+          case 'ACS.didAddToMap':
+            callbackForDidAddToMap_in_getherServer(e.data)
             break
           case 'ACS.reqAceApp':
             callbackForReqAceApp_in_getherServer(e.data)
