@@ -209,7 +209,6 @@
         console.log(notNormal['kw']);
       }
 
-      var _token = '-1';
       function onSendPostMessageForReqAceApp() {
         reqAceApp('http://localhost:3000/')
       }
@@ -217,8 +216,35 @@
       function reqAceApp(destinationDomain) {
         console.log('in reqAceApp in getherServer');
         console.log('destinationDomain in getherServer: ' + destinationDomain);
-        console.log('params in getherServer: ' + JSON.stringify({type: 'ACS.reqAceApp', token:_token, location: self.location.toString()}, null, 2));
-        window.parent.postMessage({type: 'ACS.reqAceApp', token:_token, location: self.location.toString()}, destinationDomain)
+        console.log('params in getherServer: ' + JSON.stringify({type: 'ACS.reqAceApp', location: self.location.toString()}, null, 2));
+        window.parent.postMessage({type: 'ACS.reqAceApp', location: self.location.toString()}, destinationDomain)
+      }
+
+      function postMessage(e, data) {
+        console.log('getherServer::in postMessage');
+
+        let [port2] = e.ports || []
+        if (!port2) return
+
+        port2.onmessage = (e) => {
+          console.log('getherServer::port2.onmessage::e.data: ' + JSON.stringify(e.data));
+          // switch (e.data.type) {
+          //   case 'ACS.didAddByOnLoad':
+          //     callbackForDidAddByOnLoad_in_getherServer(e)
+          //     break
+          //   case 'ACS.reqAceApp':
+          //     callbackForReqAceApp_in_getherServer(e)
+          //     break
+          //   case 'ACS.resAceApp':
+          //     callbackForResAceApp_in_getherServer(e)
+          //     break
+          //   default:
+          //   break
+          // }
+      }
+
+        console.log('getherServer::data: ' + JSON.stringify(data));
+        port2.postMessage(data);
       }
 
       function _callback_in_getherServer(res) {
@@ -226,35 +252,38 @@
         console.log(res);
       }
 
-      function callbackForDidAddToMap_in_getherServer(res) {
-        console.log('callbackForDidAddToMap_in_getherServer');
-        console.log(JSON.stringify(res, null, 2));
-        _token = res.token
-        reqAceApp('http://localhost:3000/')
+      function callbackForDidAddByOnLoad_in_getherServer(e) {
+        console.log('callbackForDidAddByOnLoad_in_getherServer');
+        console.log(JSON.stringify(e.data, null, 2));
+
+        postMessage(e, {
+          type: 'ACS.reqAceApp',
+          token: e.data.token,
+          location: self.location.toString(),
+        })
       }
 
-      function callbackForReqAceApp_in_getherServer(res) {
+      function callbackForReqAceApp_in_getherServer(e) {
         console.log('callbackForReqAceApp_in_getherServer');
-        console.log(JSON.stringify(res, null, 2));
+        console.log(JSON.stringify(e.data, null, 2));
       }
 
-      function callbackForResAceApp_in_getherServer(res) {
+      function callbackForResAceApp_in_getherServer(e) {
         console.log('callbackForResAceApp_in_getherServer');
-        console.log(JSON.stringify(res, null, 2));
+        console.log(JSON.stringify(e.data, null, 2));
       }
 
       function handleMessage(e) {
-        if (event.origin !== 'http://localhost:3000') return
-
+        if (e.origin !== 'http://localhost:3000') return
         switch (e.data.type) {
-          case 'ACS.didAddToMap':
-            callbackForDidAddToMap_in_getherServer(e.data)
+          case 'ACS.didAddByOnLoad':
+            callbackForDidAddByOnLoad_in_getherServer(e)
             break
           case 'ACS.reqAceApp':
-            callbackForReqAceApp_in_getherServer(e.data)
+            callbackForReqAceApp_in_getherServer(e)
             break
           case 'ACS.resAceApp':
-            callbackForResAceApp_in_getherServer(e.data)
+            callbackForResAceApp_in_getherServer(e)
             break
           default:
           break
