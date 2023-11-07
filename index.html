@@ -227,20 +227,14 @@
         if (!port2) return
 
         port2.onmessage = (e) => {
-          console.log('getherServer::port2.onmessage::e.data: ' + JSON.stringify(e.data));
-          // switch (e.data.type) {
-          //   case 'ACS.didAddByOnLoad':
-          //     callbackForDidAddByOnLoad_in_getherServer(e)
-          //     break
-          //   case 'ACS.reqAceApp':
-          //     callbackForReqAceApp_in_getherServer(e)
-          //     break
-          //   case 'ACS.resAceApp':
-          //     callbackForResAceApp_in_getherServer(e)
-          //     break
-          //   default:
-          //   break
-          // }
+          // console.log('getherServer::port2.onmessage::e.data: ' + JSON.stringify(e.data));
+          switch (e.data.type) {
+            case 'ACS.resAceApp':
+              callbackForResAceApp_in_getherServer(e)
+              break
+            default:
+            break
+          }
       }
 
         console.log('getherServer::data: ' + JSON.stringify(data));
@@ -278,12 +272,6 @@
         switch (e.data.type) {
           case 'ACS.didAddByOnLoad':
             callbackForDidAddByOnLoad_in_getherServer(e)
-            break
-          case 'ACS.reqAceApp':
-            callbackForReqAceApp_in_getherServer(e)
-            break
-          case 'ACS.resAceApp':
-            callbackForResAceApp_in_getherServer(e)
             break
           default:
           break
