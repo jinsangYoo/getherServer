@@ -209,15 +209,15 @@
         console.log(notNormal['kw']);
       }
 
-      function onSendPostMessageForReqAceApp() {
-        reqAceApp('http://localhost:3000/')
+      function onSendPostMessageForReqOnLoad() {
+        reqOnLoad('http://localhost:3000/')
       }
 
-      function reqAceApp(destinationDomain) {
-        console.log('in reqAceApp in getherServer');
+      function reqOnLoad(destinationDomain) {
+        console.log('in reqOnLoad in getherServer');
         console.log('destinationDomain in getherServer: ' + destinationDomain);
-        console.log('params in getherServer: ' + JSON.stringify({type: 'ACS.reqAceApp', location: self.location.toString()}, null, 2));
-        window.parent.postMessage({type: 'ACS.reqAceApp', location: self.location.toString()}, destinationDomain)
+        console.log('params in getherServer: ' + JSON.stringify({type: 'ACS.reqOnLoad', location: self.location.toString()}, null, 2));
+        window.parent.postMessage({type: 'ACS.reqOnLoad', location: self.location.toString()}, destinationDomain)
       }
 
       function postMessage(e, data) {
@@ -229,8 +229,8 @@
         port2.onmessage = (e) => {
           // console.log('getherServer::port2.onmessage::e.data: ' + JSON.stringify(e.data));
           switch (e.data.type) {
-            case 'ACS.resAceApp':
-              callbackForResAceApp_in_getherServer(e)
+            case 'ACS.resOnLoad':
+              callbackForResOnLoad_in_getherServer(e)
               break
             default:
             break
@@ -251,20 +251,21 @@
         console.log(JSON.stringify(e.data, null, 2));
 
         postMessage(e, {
-          type: 'ACS.reqAceApp',
+          type: 'ACS.reqOnLoad',
           token: e.data.token,
           location: self.location.toString(),
         })
       }
 
-      function callbackForReqAceApp_in_getherServer(e) {
-        console.log('callbackForReqAceApp_in_getherServer');
+      function callbackForReqOnLoad_in_getherServer(e) {
+        console.log('callbackForReqOnLoad_in_getherServer');
         console.log(JSON.stringify(e.data, null, 2));
       }
 
-      function callbackForResAceApp_in_getherServer(e) {
-        console.log('callbackForResAceApp_in_getherServer');
+      function callbackForResOnLoad_in_getherServer(e) {
+        console.log('callbackForResOnLoad_in_getherServer');
         console.log(JSON.stringify(e.data, null, 2));
+        $('#resOnLoad').text(JSON.stringify(e.data, null, 2));
       }
 
       function handleMessage(e) {
@@ -313,7 +314,9 @@
   <body onload="_loader()">
   <!-- <body> -->
     <h1>진상 로컬 index page!!</h1>
-    <button onclick="onSendPostMessageForReqAceApp()">onSendPostMessageForReqAceApp()</button><br><br><br>
+    <button onclick="onSendPostMessageForReqOnLoad()">onSendPostMessageForReqOnLoad()</button><br><br>
+    <pre id="resOnLoad">resOnLoad</pre>
+    <br>
     <a href="http://10.77.129.54:3000" target="_self">react + next QA 웹사이트 target="_self", default</a><br /><br />
     <a href="http://10.77.129.54:3000" target="_blank">react + next QA 웹사이트 target="_blank"</a><br /><br />
     <div id="container1">test for react study 1</div>
