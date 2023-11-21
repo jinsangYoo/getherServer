@@ -216,8 +216,8 @@
       function reqOnLoad(destinationDomain) {
         console.log('in reqOnLoad in getherServer');
         console.log('destinationDomain in getherServer: ' + destinationDomain);
-        console.log('params in getherServer: ' + JSON.stringify({type: 'ACS.reqOnLoad', location: self.location.toString()}, null, 2));
-        window.parent.postMessage({type: 'ACS.reqOnLoad', location: self.location.toString()}, destinationDomain)
+        console.log('params in getherServer: ' + JSON.stringify({type: 'ACS.reqOnLoad', location: self.location.origin.toString()}, null, 2));
+        window.parent.postMessage({type: 'ACS.reqOnLoad', location: self.location.origin.toString()}, destinationDomain)
       }
 
       function postMessage(e, data) {
@@ -253,7 +253,7 @@
         postMessage(e, {
           type: 'ACS.reqOnLoad',
           token: e.data.token,
-          location: self.location.toString(),
+          location: self.location.origin.toString(),
         })
       }
 
