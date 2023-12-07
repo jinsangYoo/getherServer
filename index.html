@@ -209,8 +209,12 @@
         console.log(notNormal['kw']);
       }
 
+      const _ip = 'http://10.77.129.54'
+      const mobile = `${_ip}:3001`
+      const _parentOrigin = `${_ip}:3000`
+
       function onSendPostMessageForReqOnLoad() {
-        reqOnLoad('http://localhost:3000/')
+        reqOnLoad(_parentOrigin)
       }
 
       function reqOnLoad(destinationDomain) {
@@ -254,6 +258,9 @@
           type: 'ACS.reqOnLoad',
           token: e.data.token,
           location: self.location.origin.toString(),
+          payload: {
+            // eventName: 'iframe 연동, Use useEffect reqReady in index.html'
+          }
         })
       }
 
@@ -263,13 +270,13 @@
       }
 
       function callbackForResOnLoad_in_getherServer(e) {
-        console.log('callbackForResOnLoad_in_getherServer');
+        console.log('finish::callbackForResOnLoad_in_getherServer');
         console.log(JSON.stringify(e.data, null, 2));
         $('#resOnLoad').text(JSON.stringify(e.data, null, 2));
       }
 
       function handleMessage(e) {
-        if (e.origin !== 'http://localhost:3000') return
+        if (e.origin !== `${_parentOrigin}`) return
         switch (e.data.type) {
           case 'ACS.didAddByOnLoad':
             callbackForDidAddByOnLoad_in_getherServer(e)
