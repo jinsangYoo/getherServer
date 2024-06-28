@@ -1,0 +1,89 @@
+{
+    "result": {
+        "vote_candidate_info": {
+            "vote_candidate_id": 1582,
+            "candidate_title": "아이유(IU)",
+            "content_id": 80049126,
+            "streaming_percent": 0.0,
+            "vote_percent": 0.0,
+            "vote_rank": 0,
+            "artist": {
+                "artist_id": 80049126,
+                "artist_nm": "아이유(IU)",
+                "upd_dt": 1709220084000,
+                "adhoc_attr": {
+                    "comment_group_id": 64516115,
+                    "likes_count": 69293,
+                    "likes_yn": true,
+                    "descr_yn": true,
+                    "vote_yn": false
+                },
+                "type": {
+                    "group_yn": false,
+                    "group_cd_nm": "솔로",
+                    "sex_cd_nm": "여성",
+                    "category": "NORMAL"
+                },
+                "image": {
+                    "path": "/800491/80049126.jpg",
+                    "color": "DBD8C9",
+                    "ratio": 1.0
+                },
+                "nation_cd": "KOR",
+                "expose_yn": true,
+                "act_start_ymd": "2008",
+                "genres": [
+                    {
+                        "svc_type": 20500,
+                        "svc_nm": "발라드"
+                    },
+                    {
+                        "svc_type": 20510,
+                        "svc_nm": "댄스/팝"
+                    }
+                ],
+                "profile_url": "http://ko.wikipedia.org/wiki/아이유",
+                "artist_tp": "NORMAL",
+                "valid_yn": true
+            },
+            "image": {
+                "path": "/800491/80049126.jpg",
+                "color": "DBD8C9",
+                "ratio": 1.0
+            },
+            "img_yn": false
+        },
+        "vote_point": 1,
+        "vote_dt": 1719472190000,
+        "vote_info": {
+            "vote_info_id": 783,
+            "title": "(QA/783) 리워드 배너 X\n아티스트 스밍+투표 확인용",
+            "eng_title": "(QA/783) reward banner X\nartist streaming+vote all check 제목",
+            "sub_title": "(QA/783) 부제_아티스트 투표 확인용 ",
+            "eng_sub_title": "(QA/783) reward banner X\nartist streaming+vote all check 부제",
+            "description": "(QA/ID 783/한글)\n아티스트 only 스밍 체크 투표\n영문 텍스트 없을 경우 확인용입니다.\n:x::x:투표 금지:x::x:",
+            "start_dt": 1706148000000,
+            "end_dt": 1735608900000,
+            "ui_type": "CHART",
+            "candidate_type": "ARTIST",
+            "vote_type": "NORMAL",
+            "comment_group_id": 270057295,
+            "event_id": 0,
+            "bg_color_type": "GRAY",
+            "vote_use_point_type": "FREE",
+            "vote_use_point": 10,
+            "vote_candidates": [],
+            "vote_certificate_yn": false,
+            "comment_yn": true,
+            "event_yn": false,
+            "vote_img_yn": true,
+            "eng_vote_img_yn": true,
+            "event_img_yn": false,
+            "reward_yn": true,
+            "eng_reward_yn": false,
+            "past_reward_yn": false
+        }
+    },
+    "ret_code": 0,
+    "ret_msg": "성공하였습니다."
+}
