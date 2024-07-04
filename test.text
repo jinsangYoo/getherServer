@@ -1,0 +1,9 @@
+Calling RS with no Context active.
+android.renderscript.RSInvalidStateException: Calling RS with no Context active.
+  at android.renderscript.RenderScript.validate(RenderScript.java:1252)
+  at android.renderscript.Allocation.createFromBitmap(Allocation.java:2798)
+  at android.renderscript.Allocation.createFromBitmap(Allocation.java:3063)
+  at com.neowiz.android.bugs.uibase.blur.RenderScriptBlur.blur(RenderScriptBlur.java:47)
+  at com.neowiz.android.bugs.uibase.blur.BlockingBlurController.blurAndSave(BlockingBlurController.java:257)
+  at com.neowiz.android.bugs.uibase.blur.BlockingBlurController.drawBlurredContent(BlockingBlurController.java:239)
+  at com.neowiz.android.bugs.uibase.blur.BlurView.draw(BlurView.java:59)
