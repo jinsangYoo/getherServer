@@ -412,7 +412,27 @@ app.get('/sign', function (req, res) {
   })
 })
 
-app.get('/music/5/vote/favorite/vote/783/certificate/info', function (req, res) {
+app.get(
+  '/music/5/vote/favorite/vote/783/certificate/info',
+  function (req, res) {
+    console.log('GET call')
+    console.log('***** req.headers: >>' + JSON.stringify(req.headers) + '<<')
+
+    console.log('req.url: ' + JSON.stringify(req.url))
+    console.log('req.query: ' + JSON.stringify(req.query))
+    console.log('req.body: ' + JSON.stringify(req.body))
+
+    fs.readFile('./vote_783_certifivate_info.json', function (error, data) {
+      res.writeHead(200, {
+        'Content-Type': 'application/json',
+        'Accept-CH': 'UA, Platform',
+      })
+      res.end(data)
+    })
+  }
+)
+
+app.get('/file/:filename', function (req, res) {
   console.log('GET call')
   console.log('***** req.headers: >>' + JSON.stringify(req.headers) + '<<')
 
@@ -420,13 +440,12 @@ app.get('/music/5/vote/favorite/vote/783/certificate/info', function (req, res) 
   console.log('req.query: ' + JSON.stringify(req.query))
   console.log('req.body: ' + JSON.stringify(req.body))
 
-  fs.readFile('./vote_783_certifivate_info.json', function (error, data) {
-    res.writeHead(200, {
-      'Content-Type': 'application/json',
-      'Accept-CH': 'UA, Platform',
-    })
-    res.end(data)
-  })
+  var params = req.params
+  console.log(params)
+
+  const file = `${__dirname}/${params.filename}`
+  console.log(`file: ${file}`)
+  res.download(file)
 })
 
 let port = 52274
