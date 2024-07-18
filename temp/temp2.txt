@@ -1,55 +1,52 @@
-require_relative '../node_modules/react-native/scripts/react_native_pods'
-require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
+2024-07-18 16:16:09.869  6573-6903  NotificationManager     com.neowiz.android.bugs              I  com.neowiz.android.bugs: notify(1138, null, Notification
+2024-07-18 16:16:09.960  6573-6629  SaveTransferService     com.neowiz.android.bugs              D  사이즈 contentLength: 16051718
+2024-07-18 16:16:11.712  6573-6629  SaveTransferService     com.neowiz.android.bugs              E  ret rename true
 
-platform :ios, '12.4'
-use_frameworks! :linkage => :static
-$RNFirebaseAsStaticFramework = true
-install! 'cocoapods', :deterministic_uuids => false
+사이즈 contentLength: 16,051,718
+16,051,718바이트(디스크에 16.1MB 있음)
 
-target 'rnForNHNDATA' do
-  config = use_native_modules!
+다운로드                                                저장하기
 
-  flags = get_default_flags()
+1765                                                    416
+사이즈 contentLength: 12,838,243                          4,866,063  38%
+사건의 지평선 - 윤하(Younha/ユンナ)                     
 
-  pod 'Firebase', :modular_headers => true
-  pod 'FirebaseCoreInternal', :modular_headers => true
-  pod 'GoogleUtilities', :modular_headers => true
-  pod 'FirebaseCore', :modular_headers => true
-  pod 'FirebaseCoreExtension', :modular_headers => true
-  pod 'FirebaseInstallations', :modular_headers => true
-  pod 'GoogleDataTransport', :modular_headers => true
+1540                                                    360
+사이즈 contentLength: 8,543,542                           3,308,405  39
+파이팅 해야지 (Feat. 이영지)                            
 
-  use_react_native!(
-    :path => config[:reactNativePath],
-    # to enable hermes on iOS, change `false` to `true` and then install pods
-    :hermes_enabled => true,
-    :fabric_enabled => flags[:fabric_enabled],
-  )
+1641                                                    411
+사이즈 contentLength: 11,420,527                          4,217,537  37
+혼자서 걸어요 (Prod. by 나얼) - 태연 (TAEYEON)          
 
+2275                                                    344
+사이즈 contentLength: 8,634,312                           3,001,978  35
+Ditto - NewJeans                                        
 
+1459                                                    404
+사이즈 contentLength: 9,704,283                           3,434,204  35
+OMG - NewJeans                                          
 
+1422                                                    473
+사이즈 contentLength: 10,702,769                          4,132,670  39
+Here With Me - Dido(다이도)                             
 
+671                                                     216
+사이즈 contentLength: 2,986,307                           1,065,539  37
+Lullabye - Emitt Rhodes                                 
 
+852                                                         347
+사이즈 contentLength: 6,591,886                           2,219,858  34
+ONE (Album Version) - Nathan Lane(나단 레인)            
 
+1089                                                    456
+사이즈 contentLength: 10,168,731                          3,661,018  36
+소녀 - 오혁(OhHyuk)                                     
 
+1135                                                    595
+사이즈 contentLength: 10,608,618                          4,054,183  38
+Married Life - Michael Giacchino(마이클 지아치노)       
 
-
-  target 'rnForNHNDATATests' do
-    inherit! :complete
-    # Pods for testing
-  end
-
-  # Enables Flipper.
-  #
-  # Note that if you have use_frameworks! enabled, Flipper will not work and
-  # you should disable the next line.
-  post_install do |installer|
-    react_native_post_install(
-      installer,
-      # Set `mac_catalyst_enabled` to `true` in order to apply patches
-      # necessary for Mac Catalyst builds
-      :mac_catalyst_enabled => false
-    )
-    __apply_Xcode_12_5_M1_post_install_workaround(installer)
-  end
-end
+1749                                                    605
+사이즈 contentLength: 5,724,371                           2,287,679  40
+Birmingham - Randy Newman(랜디 뉴먼)                    Birmingham
