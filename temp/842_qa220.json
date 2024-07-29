@@ -1,0 +1,83 @@
+{
+  "result": {
+    "vote_candidate_info": {
+      "vote_candidate_id": 1561,
+      "candidate_title": "aespa",
+      "content_id": 80347326,
+      "streaming_percent": 0.0,
+      "vote_percent": 0.0,
+      "vote_rank": 0,
+      "artist": {
+        "artist_id": 80347326,
+        "artist_nm": "aespa",
+        "upd_dt": 1716564065000,
+        "adhoc_attr": {
+          "comment_group_id": 241817174,
+          "likes_count": 8304,
+          "likes_yn": false,
+          "descr_yn": true,
+          "vote_yn": false
+        },
+        "type": {
+          "group_yn": true,
+          "group_cd_nm": "그룹",
+          "sex_cd_nm": "여성",
+          "category": "NORMAL"
+        },
+        "image": {
+          "path": "/803473/80347326.jpg",
+          "color": "12131A",
+          "ratio": 1.0
+        },
+        "nation_cd": "KOR",
+        "descr": "aespa는 SM 엔터테인먼트에 소속된 걸그룹으로 카리나 (KARINA), 지젤 (GISELLE), 윈터 (WINTER), 닝닝 (NINGNING)으로 구성되어 있다. 팀명 'aespa'는 ‘Avatar X Experience’를 표현한 'ae’와 양면이라는 뜻의 영단어 ‘aspect’를 결합해 만든 이름으로, '자신의 또 다른 자아인 아바타를 만나 새로운 세계를 경험하게 된다'는 세계관을 바탕으로 획기적이고 다채로운 활동을 선보일 예정이다.",
+        "expose_yn": true,
+        "genres": [
+          {
+            "svc_type": 20510,
+            "svc_nm": "댄스/팝"
+          }
+        ],
+        "artist_tp": "NORMAL",
+        "valid_yn": true
+      },
+      "image": {
+        "path": "/803473/80347326.jpg",
+        "color": "12131A",
+        "ratio": 1.0
+      },
+      "img_yn": false
+    },
+    "vote_point": 1,
+    "vote_dt": 1719912880000,
+    "vote_info": {
+      "vote_info_id": 842,
+      "title": "(QA)\n아티스트 순위 집계 전 (1회성)",
+      "sub_title": "(QA/ID 842) 부제_아티스트 순위 집계 전 확인",
+      "description": "(QA/ID 842) 부제_아티스트 순위 집계 전 확인\n집계 초기화가 자주 됩니다. 투표하지 말아주세요",
+      "start_dt": 1708500900000,
+      "end_dt": 1735630740000,
+      "ui_type": "CHART",
+      "candidate_type": "ARTIST",
+      "vote_type": "NORMAL",
+      "comment_group_id": 0,
+      "event_id": 0,
+      "bg_color_type": "RED",
+      "vote_use_point_type": "FREE",
+      "vote_use_point": 100,
+      "streaming_yn": true,
+      "vote_candidates": [],
+      "vote_certificate_yn": false,
+      "comment_yn": false,
+      "event_yn": false,
+      "vote_img_yn": true,
+      "eng_vote_img_yn": false,
+      "event_img_yn": false,
+      "reward_yn": true,
+      "eng_reward_yn": true,
+      "past_reward_yn": false
+    }
+  },
+  "ret_code": 0,
+  "ret_msg": "성공하였습니다."
+}
