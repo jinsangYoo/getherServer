@@ -1,26 +1,31 @@
-2024-07-11 11:36:34.694 21932-22641 SaveUseJobService       com.neowiz.android.bugs              D  sync test 00006
-2024-07-11 11:36:34.695 21932-22641 SaveUseJobService       com.neowiz.android.bugs              D  sync test 00007
-2024-07-11 11:36:34.695 21932-22641 SaveUseJobService       com.neowiz.android.bugs              D  sync test 00008
-2024-07-11 11:36:34.695 21932-22641 SaveUseJobService       com.neowiz.android.bugs              D  sync test 00009
-2024-07-11 11:36:34.695 21932-22641 SaveUseJobService       com.neowiz.android.bugs              D  sync test 00010
-2024-07-11 11:36:34.695 21932-22641 SaveUseJobService       com.neowiz.android.bugs              D  run download
+2024-07-30 17:14:59.454 30524-30816 MediaStore              com.neowiz.android.bugs              V  Examining volume emulated;0 with name external_primary and state mounted
+2024-07-30 17:14:59.454 30524-30816 MediaStore...ferService com.neowiz.android.bugs              E  volume : external_primary
+2024-07-30 17:14:59.466 30524-30816 MediaStore...ferService com.neowiz.android.bugs              D  Deleted legacy file : 0
+2024-07-30 17:14:59.475 30524-30816 System.err              com.neowiz.android.bugs              W  java.lang.IllegalStateException: Failed to build unique file: /storage/emulated/0/Music/Bugs/Ditto_NewJeans_320k.mp3 bucket_display_name=Bugs volume_name=external_primary date_modified=null date_expires=null _display_name=Ditto_NewJeans_320k.mp3 mime_type=audio/mpeg _data=/storage/emulated/0/Music/Bugs/Ditto_NewJeans_320k.mp3 _size=null is_trashed=0 is_pending=0 bucket_id=1187805827 relative_path=Music/Bugs/
+2024-07-30 17:14:59.475 30524-30816 System.err              com.neowiz.android.bugs              W  	at android.os.Parcel.createExceptionOrNull(Parcel.java:3077)
+2024-07-30 17:14:59.475 30524-30816 System.err              com.neowiz.android.bugs              W  	at android.os.Parcel.createException(Parcel.java:3053)
+2024-07-30 17:14:59.475 30524-30816 System.err              com.neowiz.android.bugs              W  	at android.os.Parcel.readException(Parcel.java:3036)
+2024-07-30 17:14:59.476 30524-30816 System.err              com.neowiz.android.bugs              W  	at android.database.DatabaseUtils.readExceptionFromParcel(DatabaseUtils.java:190)
+2024-07-30 17:14:59.476 30524-30816 System.err              com.neowiz.android.bugs              W  	at android.database.DatabaseUtils.readExceptionFromParcel(DatabaseUtils.java:142)
+2024-07-30 17:14:59.476 30524-30816 System.err              com.neowiz.android.bugs              W  	at android.content.ContentProviderProxy.update(ContentProviderNative.java:685)
+2024-07-30 17:14:59.476 30524-30816 System.err              com.neowiz.android.bugs              W  	at android.content.ContentResolver.update(ContentResolver.java:2416)
+2024-07-30 17:14:59.476 30524-30816 System.err              com.neowiz.android.bugs              W  	at android.content.ContentResolver.update(ContentResolver.java:2378)
+2024-07-30 17:14:59.476 30524-30816 System.err              com.neowiz.android.bugs              W  	at com.neowiz.android.bugs.download.MediaStoreDownloadTransferService.renameDownload(MediaStoreDownloadTransferService.kt:405)
+2024-07-30 17:14:59.476 30524-30816 System.err              com.neowiz.android.bugs              W  	at com.neowiz.android.bugs.download.MediaStoreDownloadTransferService.completeDownloadMp3(MediaStoreDownloadTransferService.kt:346)
+2024-07-30 17:14:59.476 30524-30816 System.err              com.neowiz.android.bugs              W  	at com.neowiz.android.bugs.download.MediaStoreDownloadTransferService.downloadMp3File(MediaStoreDownloadTransferService.kt:322)
+2024-07-30 17:14:59.476 30524-30816 System.err              com.neowiz.android.bugs              W  	at com.neowiz.android.bugs.download.MediaStoreDownloadTransferService.download(MediaStoreDownloadTransferService.kt:253)
+2024-07-30 17:14:59.476 30524-30816 System.err              com.neowiz.android.bugs              W  	at com.neowiz.android.bugs.download.MediaStoreDownloadTransferService.access$download(MediaStoreDownloadTransferService.kt:106)
+2024-07-30 17:14:59.476 30524-30816 System.err              com.neowiz.android.bugs              W  	at com.neowiz.android.bugs.download.MediaStoreDownloadTransferService$onStartJob$1.invokeSuspend(MediaStoreDownloadTransferService.kt:151)
+2024-07-30 17:14:59.476 30524-30816 System.err              com.neowiz.android.bugs              W  	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+2024-07-30 17:14:59.476 30524-30816 System.err              com.neowiz.android.bugs              W  	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:108)
+2024-07-30 17:14:59.476 30524-30816 System.err              com.neowiz.android.bugs              W  	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:115)
+2024-07-30 17:14:59.476 30524-30816 System.err              com.neowiz.android.bugs              W  	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:103)
+2024-07-30 17:14:59.476 30524-30816 System.err              com.neowiz.android.bugs              W  	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:584)
+2024-07-30 17:14:59.477 30524-30816 System.err              com.neowiz.android.bugs              W  	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:793)
+2024-07-30 17:14:59.477 30524-30816 System.err              com.neowiz.android.bugs              W  	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:697)
+2024-07-30 17:14:59.477 30524-30816 System.err              com.neowiz.android.bugs              W  	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:684)
+2024-07-30 17:14:59.477 30524-30816 MediaStore              com.neowiz.android.bugs              V  Examining volume emulated;0 with name external_primary and state mounted
+2024-07-30 17:14:59.478 30524-30816 MediaStore...ferService com.neowiz.android.bugs              E  volume : external_primary
 
-2024-07-11 11:36:34.695 21932-22641 SaveUseJobService       com.neowiz.android.bugs              D  sync test 00001
-2024-07-11 11:36:34.699 21932-22641 SaveUseJobService       com.neowiz.android.bugs              D  sync test 00002
-2024-07-11 11:36:34.700 21932-22641 SaveUseJobService       com.neowiz.android.bugs              D  in postDelayedNotification::index: 48, contentText: OMG - NewJeans
-2024-07-11 11:36:34.700 21932-22641 SaveUseJobService       com.neowiz.android.bugs              D  handler pass
-2024-07-11 11:36:34.700 21932-22641 SaveUseJobService       com.neowiz.android.bugs              D  sync test 00003
 
-2024-07-11 11:36:35.209 21932-22641 MusicServiceDownloader  com.neowiz.android.bugs              E  ret rename true
-2024-07-11 11:36:35.209 21932-22641 SaveUseJobService       com.neowiz.android.bugs              D  sync test 00004
-2024-07-11 11:36:35.209 21932-22641 SaveUseJobService       com.neowiz.android.bugs              D  sync test 00005
-
-2024-07-11 11:36:35.492 21932-22641 SaveUseJobService       com.neowiz.android.bugs              D  sync test 00006
-2024-07-11 11:36:35.493 21932-22641 SaveUseJobService       com.neowiz.android.bugs              D  sync test 00007
-2024-07-11 11:36:35.493 21932-22641 SaveUseJobService       com.neowiz.android.bugs              D  sync test 00008
-2024-07-11 11:36:35.493 21932-22641 SaveUseJobService       com.neowiz.android.bugs              D  sync test 00009
-2024-07-11 11:36:35.493 21932-22641 SaveUseJobService       com.neowiz.android.bugs              D  sync test 00010
-2024-07-11 11:36:35.493 21932-22641 SaveUseJobService       com.neowiz.android.bugs              D  run download
-
-2024-07-11 11:36:35.493 21932-22641 SaveUseJobService       com.neowiz.android.bugs              D  sync test 00001
-2024-07-11 11:36:35.497 21932-22641 SaveUseJobService       com.neowiz.android.bugs              D  sync test 00002
+Deleted legacy file : 1
