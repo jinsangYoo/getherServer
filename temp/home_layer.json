@@ -1,0 +1,24 @@
+{
+  "result": {
+    "home_layer": [
+      {
+        "banner_id": 118647,
+        "link": "bugs3://browser?target=https://pay.bugs.co.kr/mobile/event/12month",
+        "upd_dt": 1721719367000,
+        "banner_type": "IMAGE",
+        "bg": {
+          "bg_color": "04073f",
+          "bg_color_dark": "04073f",
+          "image": {
+            "urls": {
+              "image": "https://image.bugsm.co.kr/bannerv5/home_layer/image/1186/118647.jpg?1721719367000"
+            }
+          }
+        },
+        "expire_day": 3
+      }
+    ]
+  },
+  "ret_code": 0,
+  "ret_msg": "성공하였습니다."
+}
