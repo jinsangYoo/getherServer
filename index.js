@@ -422,7 +422,67 @@ app.get(
     console.log('req.query: ' + JSON.stringify(req.query))
     console.log('req.body: ' + JSON.stringify(req.body))
 
-    fs.readFile('./vote_783_certifivate_info.json', function (error, data) {
+    fs.readFile('./temp/783_qa220.json', function (error, data) {
+      res.writeHead(200, {
+        'Content-Type': 'application/json',
+        'Accept-CH': 'UA, Platform',
+      })
+      res.end(data)
+    })
+  }
+)
+
+app.get(
+  '/music/5/vote/favorite/vote/842/certificate/info',
+  function (req, res) {
+    console.log('GET call')
+    console.log('***** req.headers: >>' + JSON.stringify(req.headers) + '<<')
+
+    console.log('req.url: ' + JSON.stringify(req.url))
+    console.log('req.query: ' + JSON.stringify(req.query))
+    console.log('req.body: ' + JSON.stringify(req.body))
+
+    fs.readFile('./temp/842_qa220.json', function (error, data) {
+      res.writeHead(200, {
+        'Content-Type': 'application/json',
+        'Accept-CH': 'UA, Platform',
+      })
+      res.end(data)
+    })
+  }
+)
+
+app.post(
+  '/music/5/banner/expire',
+  function (req, res) {
+    console.log('GET call')
+    console.log('***** req.headers: >>' + JSON.stringify(req.headers) + '<<')
+
+    console.log('req.url: ' + JSON.stringify(req.url))
+    console.log('req.query: ' + JSON.stringify(req.query))
+    console.log('req.body: ' + JSON.stringify(req.body))
+
+    fs.readFile('./temp/banner_expire.json', function (error, data) {
+      res.writeHead(200, {
+        'Content-Type': 'application/json',
+        'Accept-CH': 'UA, Platform',
+      })
+      res.end(data)
+    })
+  }
+)
+
+app.get(
+  '/music/5/banner',
+  function (req, res) {
+    console.log('GET call')
+    console.log('***** req.headers: >>' + JSON.stringify(req.headers) + '<<')
+
+    console.log('req.url: ' + JSON.stringify(req.url))
+    console.log('req.query: ' + JSON.stringify(req.query))
+    console.log('req.body: ' + JSON.stringify(req.body))
+
+    fs.readFile('./temp/home_layer.json', function (error, data) {
       res.writeHead(200, {
         'Content-Type': 'application/json',
         'Accept-CH': 'UA, Platform',
