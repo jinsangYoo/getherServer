@@ -455,7 +455,7 @@ app.get(
 app.post(
   '/music/5/banner/expire',
   function (req, res) {
-    console.log('GET call')
+    console.log('POST call')
     console.log('***** req.headers: >>' + JSON.stringify(req.headers) + '<<')
 
     console.log('req.url: ' + JSON.stringify(req.url))
