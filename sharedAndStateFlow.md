@@ -9,20 +9,25 @@
 | 초기값 필요 | 필요(언제나 값을 가짐) | 불필요 |
 | collect 하는 시점 | collect 하는 시점의 최신값과 후속 상태 값 수신 | collect 이후 방출되는 후속 값부터 수신
 | 한번에 수신 가능 값 | 가장 최신의 상태 값 | 일반적인 flow 와 같이 여러 값
-| 옵션 || buffer(collector 가 준비가 수신 가능한 상태가 아닐 경우 버퍼크기 설정), replayCache(collect 시 전달받을 이전 데이터의 개수, 몇개까지 캐싱할지) 존재
+| 옵션 || buffer(collector 가 준비가 수신 가능한 상태가 아닐 경우 버퍼크기 설정), <br>replayCache(collect 시 전달받을 이전 데이터의 개수, 몇개까지 캐싱할지) 존재
 | 용도 | flow 의 state-holder 로 state 변화가 중요한 곳 | StateFlow 와 달리 값의 변화 상관없이 flow 데이터를 보낼 수 있어서 이벤트 핸들링에도 사용 가능
 
-* extraBufferCapacity
-    * buffer 의 개수를 지정합니다.
-    * emit 은 buffer 공간이 남아 있는 동안 suspend 되지 않습니다.
-    * 버퍼사이즈: replay + extraBufferCapacity
-* onBufferOverflow
-    * buffer 가 가득찼을 때 수행할 옵션을 지정합니다.
-        * BufferOverflow.SUSPEND: emit이 blocking되며, buffer의 빈 공간이 생겨야 진행 됩니다.
-        * BufferOverflow.DROP_OLDEST: 오래된 값을 삭제하고, 새로운 값을 넣습니다.
-        * BufferOverflow.DROP_LASTEST: 최근 값을 삭제하고, 새로운 값을 넣습니다.
+* StateFlow
+    * SharedFlow 의 한종류로 추가로 기본값을 가지고 있습니다.
+* SharedFlow
+    * replay = 0
+        * 새로운 구독자에게 이전 이벤트를 전달하지 않습니다.
+    * extraBufferCapacity = 1
+        * buffer 의 개수를 지정합니다.
+        * emit 은 buffer 공간이 남아 있는 동안 suspend 되지 않습니다.
+        * 버퍼사이즈: replay + extraBufferCapacity
+    * onBufferOverflow = BufferOverflow.DROP_OLDEST
+        * buffer 가 가득찼을 때 수행할 옵션을 지정합니다.
+            * BufferOverflow.SUSPEND: emit이 blocking되며, buffer의 빈 공간이 생겨야 진행 됩니다.
+            * BufferOverflow.DROP_OLDEST: 버퍼가 가득찼을 시 오래된 값을 삭제하고, 새로운 값을 넣습니다.
+            * BufferOverflow.DROP_LASTEST: 최근 값을 삭제하고, 새로운 값을 넣습니다.
 * stateIn, shareIn
-    * 하나의 flow 에서 방출된 값을 여러개의 collector 에서 받아야 할 경우 유용
+    * 하나의 flow 에서 방출된 값을 여러개의 collector 에서 받아야 할 경우 유용합니다.
 
 * StateFlow 와 LiveData
 
