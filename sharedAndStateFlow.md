@@ -14,7 +14,7 @@
 |        용도         | flow 의 state-holder 로 state 변화가 중요한 곳 |                              StateFlow 와 달리 값의 변화 상관없이 flow 데이터를 보낼 수 있어서 이벤트 핸들링에도 사용 가능                              |
 
 - 공통
-  - 둘다 hot stream 으로 collect 시점부터 수집합니다.
+  - 둘다 hot stream 으로 collect 시점부터 수집합니다. [\[출처\]](https://yang-droid.tistory.com/59)
 - StateFlow
   - SharedFlow 의 한종류로 추가로 기본값을 가지고 있습니다.
 - SharedFlow
@@ -34,8 +34,39 @@
       - BufferOverflow.DROP_OLDEST: 버퍼가 가득찼을 시 오래된 값을 삭제하고, 새로운 값을 넣습니다.
       - BufferOverflow.DROP_LASTEST: 최근 값을 삭제하고, 새로운 값을 넣습니다.
 - stateIn, shareIn
-
   - 하나의 flow 에서 방출된 값을 여러개의 collector 에서 받아야 할 경우 유용합니다.
+- collect, collectLatest 차이
+  - collect 는 1~10까지 아이템이 발행된다고 했을때 소비에 시간이 오래걸리게 될 경우
+    - 가장 최신의 아이템인 10이 발행되더라도 이전에 발행된 아이템 소비와 UI 업데이트로 아이템 10의 처리가 늦게 되고,
+    - 이전 아이템 소비가 안될 경우 그 이후 아이템은 처리가 안되게 됩니다.
+  - collectLatest 는 위 collect 의 문제처리를 위해 최신 아이템이 발행됐을 때 이전 데이터 소비를 취소하고 새로 발행된 아이템을 수행하도록 합니다.
+  - collectLatest 의 한계
+    - 아이템 발행에 0.1초, 소비에 1초가 걸린다면 발행대비 소비가 늦어 모두 취소되고 가장 마지막 데이터만 소비되게 됩니다.
+    - 의도한것이 아니라면 주의할 필요가 있습니다.
+    - 이를 해결하는 방법으로
+      - 한번 시작된 데이터 소비는 끝날 때까지 하고 데이터 소비가 끝난 시점에서의 가장 최신 데이터를 다시 소비하는 방법이 있습니다.
+        - conflate 를 이용해 collect 를 하게 되면 시작한 소비는 취소되지 않고 소비가 완료 됐을때 가장 최신의 데이터가 다시 소비하도록 하는 방법입니다.
+        - 소비가 오래 걸려도 `consume` 완료 시점에 계속해서 최신의 데이터를 발행받아 소비할 수 있습니다.
+
+```bash
+number >> emit 1
+number >> emit 2
+number >> consume 1
+number >> emit 3
+number >> emit 4
+number >> consume 2
+number >> emit 5
+number >> consume 4
+number >> emit 6
+number >> emit 7
+number >> consume 5
+number >> emit 8
+number >> emit 9
+number >> consume 7
+number >> emit 10
+number >> consume 9
+number >> consume 10
+```
 
 - StateFlow 와 LiveData
 
@@ -46,5 +77,39 @@
 | 수명주기 인식 | 자동 인식 불가(Lifecycle.repeatOnLifecycle 사용) | LiveData.observe() 가 전달 받은 lifecycleOwner 로 인식 |
 
 - LiveData 만 쓰지 않는 이유
+
   - LiveData 는 잘 동작하지만 안드로이드 플랫폼에 독립적이고, 순수 Kotlin 및 java만 사용할 수 있는 즉 언어 의존성만 지니는 Domain layer 에서는 LiveData 를 쓰기 어렵습니다.
   - 또한 계층별로 모듈화를 진행하고 있거나 진행할 예정이라면, LiveData 만을 위해 안드로이드 의존성을 지니게 될 수도 있습니다.
+
+- channel
+  - Coroutine 간에 데이터를 주고 받기 위해 만들어진 인터페이스 입니다.
+    - send, receive 둘다 suspend 함수입니다.
+  - 한쪽에서 값을 send 하면 다른쪽에서 receive 하는 개념입니다.
+    - channel.close() 후에 다시 send, receive 할 수 없습니다.
+  - 버퍼 정책
+    - capacity
+      - RENDEZVOUS: Buffer 가 존재하지 않는 정책입니다.
+      - UNLIMITED: 버퍼가 무한한 정책입니다.
+      - BUFFERED: 크기가 고정된 buffer 를 사용하는 정책입니다.
+      - CONFLATED: buffer 가 1인 channel 를 유지하지만, 이미 생산된 데이터가 있는 경우 데이터를 덮어씁니다.
+    - onBufferOverflow: Buffer 가 넘치게 되는 경우 취할 수 있는 행동은 크게 3가지 종류
+      - SUSPEND: 더 이상 데이터를 Channel 에 받아들이지 않고 대기합니다. (default)
+      - DROP_OLDEST: 가장 오래된 데이터를 제거하고 새로운 데이터를 받아들입니다. (queue)
+      - DROP_LATEST: 가장 최신의 데이터를 제거하고 새로운 데이터를 받아들입니다. (stack)
+
+|                          |                  Channel                   |                Flow                 |
+| :----------------------: | :----------------------------------------: | :---------------------------------: |
+|     데이터 생성 위치     |      외부에서 channel.send() 로 생성       |       flow 함수 내부에서 생성       |
+|    collect 되는 시점     |      send() 후 receive() 시 배출받음       | collect 시 마다 데이터 생성 후 배출 |
+| 동일값을 여러곳에서 소비 | 한번 배출 후 다른곳에서 동일값 소비 불가능 |     여러곳에서 동일값 소비 가능     |
+|           버퍼           |               버퍼 정책 존재               |            buffer() 이용            |
+|           옵션           |              close 함수 존재               |
+
+- flow
+  - buffer()
+    - capacity: buffer 의 size 를 몇으로 지정할 것인지 설정
+      - default: 64
+    - onBufferOverflow: Buffer 가 넘치게 되는 경우 취할 수 있는 행동은 크게 3가지 종류
+      - SUSPEND: 일시중지 (default)
+      - DROP_OLDEST: 오래된 데이터 버림
+      - DROP_LATEST: 가장 최근의 데이터를 최신 데이터로 교체
