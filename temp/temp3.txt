@@ -1,13 +1,51 @@
+static let CONTENT_TYPE_JSON = "application/json"
+    static let ACCEPT = "Accept"
+    
+    /* 브릿지 */
+    static let SYS_FO_01_010 = "SYS_FO_01_010_BR" //메인웹뷰 로드 완료
+    static let SYS_FO_01_011 = "SYS_FO_01_011_BR"
+    
+    static let SYS_FO_02_010 = "SYS_FO_02_010_BR" //활성화 통지(Back -> Fore)
+    static let SYS_FO_02_011 = "SYS_FO_02_011_BR"
+    
+    static let SYS_FO_02_020 = "SYS_FO_02_020_BR" //앱 설정 바로가기
+    static let SYS_FO_02_021 = "SYS_FO_02_021_BR"
+    
+    static let SYS_FO_05_010 = "SYS_FO_05_010_BR" //파일 권한 확인
+    static let SYS_FO_05_011 = "SYS_FO_05_011_BR"
+    
+    static let SYS_FO_08_030 = "SYS_FO_08_030_BR" //인앱 결제 요청
+    static let SYS_FO_08_031 = "SYS_FO_08_031_BR"
+    
+    static let SYS_FO_06_010 = "SYS_FO_06_010_BR" //파이어베이스토큰전송요청
+    static let SYS_FO_06_011 = "SYS_FO_06_011_BR"
+    
+    static let SYS_FO_10_010 = "SYS_FO_10_010_BR" // 앱 종료
+    static let SYS_FO_10_012 = "SYS_FO_10_012_BR({})" // 앱 종료 (방송 청취자 수 감소), APP->WEB
+    
+    static let SYS_FO_10_020 = "SYS_FO_10_020_BR" // 토스트 메세지
+    static let SYS_FO_11_011 = "SYS_FO_11_011_BR" // 통화 상태 전달
+    
+    static let SYS_FO_30_010 = "SYS_FO_30_010_BR" // 애플 로그인
+    
+    static let SYS_FO_08_090 = "SYS_FO_08_090_BR" // 키보드 상태 전달
+    
+    /*
+     SYS_FO_05_011 -> perm_sound, perm_storage, perm_camera => 각각의 권한 boolean TYPE
+     SYS_FO_06_011 -> fbtoken => 파이어베이스 토큰
+     */
+    
+    static let SYS_FO_09_010 = "SYS_FO_09_010_BR" // 앱 버전 체크
+    static let SYS_FO_09_011 = "SYS_FO_09_011_BR"
+    
+    static let SYS_FO_09_020 = "SYS_FO_09_020_BR" // 네트워크 체크
+    static let SYS_FO_09_021 = "SYS_FO_09_021_BR"
+    
+    static let SYS_FO_90_010 = "SYS_FO_90_010_BR" // isAutoLogin, token 값 저장. w일 경우 저장, d일 경우 삭제
+    static let SYS_FO_91_010 = "SYS_FO_91_010_BR" // isAutoLogin, token 값 전달
+    
+    static let SYS_FO_51_010 = "SYS_FO_51_010_BR"   //url 이동 관련 브릿지
 
-2024-07-11 11:46:40.647 25072-25698 SaveUseJobService       com.neowiz.android.bugs              D  sync test 00004
-2024-07-11 11:46:40.647 25072-25698 SaveUseJobService       com.neowiz.android.bugs              D  sync test 00005
-
-2024-07-11 11:46:40.876 25072-25698 SaveUseJobService       com.neowiz.android.bugs              D  sync test 00006
-2024-07-11 11:46:40.877 25072-25698 SaveUseJobService       com.neowiz.android.bugs              D  sync test 00007
-2024-07-11 11:46:40.877 25072-25698 SaveUseJobService       com.neowiz.android.bugs              D  sync test 00008
-2024-07-11 11:46:40.877 25072-25698 SaveUseJobService       com.neowiz.android.bugs              D  sync test 00009
-2024-07-11 11:46:40.877 25072-25698 SaveUseJobService       com.neowiz.android.bugs              D  sync test 00010
-
-2024-07-11 11:46:41.377 25072-25698 SaveUseJobService       com.neowiz.android.bugs              D  run download
-2024-07-11 11:46:41.377 25072-25698 SaveUseJobService       com.neowiz.android.bugs              D  sync test 00001
-2024-07-11 11:46:41.383 25072-25698 SaveUseJobService       com.neowiz.android.bugs              D  sync test 00002
+    // native player bridge
+    static let SYS_FO_50_010 = "SYS_FO_50_010_BR"   //현재 방송국 상태(재생정보 포함)
+    static let SYS_FO_50_020 = "SYS_FO_50_020_BR"   //네이티브 플레이어 재생, 일시정지, 닫기 시 웹뷰로 브릿지 호출
