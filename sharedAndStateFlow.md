@@ -68,6 +68,56 @@ number >> consume 9
 number >> consume 10
 ```
 
+- StateFlow 와 SharedFlow 화면(가로세로) 전환시 값이 어떻게 변하는지?
+
+- StateFlow
+
+```bash
+// 1. Activity 세로모드로 생성
+onCreate
+onStart
+// 2. StateFlow 초기값 observe, in onCreate::repeatOnLifecycle(Lifecycle.State.STARTED)
+count: 0
+onResume
+// 3. StateFlow 값 변경
+count: 1
+count: 2
+count: 3
+// 4. Activity 가로모드로 변경
+onPause
+onStop
+onDestroy
+onCreate
+onStart
+// 5. StateFlow 현재값 observe
+count: 3
+onResume
+// 6. StateFlow 값 변경
+count: 4
+```
+
+- SharedFlow
+
+```bash
+// 1. Activity 세로모드로 생성
+onCreate
+onStart
+onResume
+// 2. SharedFlow observe, in onCreate::repeatOnLifecycle(Lifecycle.State.STARTED)
+count: 1
+count: 2
+count: 3
+// 3. Activity 가로모드로 변경
+onPause
+onStop
+onDestroy
+onCreate
+onStart
+onResume
+count: 4
+count: 5
+```
+
 - StateFlow 와 LiveData
 
 |               |                    StateFlow                     |                        LiveData                        |
@@ -81,7 +131,7 @@ number >> consume 10
   - LiveData 는 잘 동작하지만 안드로이드 플랫폼에 독립적이고, 순수 Kotlin 및 java만 사용할 수 있는 즉 언어 의존성만 지니는 Domain layer 에서는 LiveData 를 쓰기 어렵습니다.
   - 또한 계층별로 모듈화를 진행하고 있거나 진행할 예정이라면, LiveData 만을 위해 안드로이드 의존성을 지니게 될 수도 있습니다.
 
-- channel
+- Channel
   - Coroutine 간에 데이터를 주고 받기 위해 만들어진 인터페이스 입니다.
     - send, receive 둘다 suspend 함수입니다.
   - 한쪽에서 값을 send 하면 다른쪽에서 receive 하는 개념입니다.
