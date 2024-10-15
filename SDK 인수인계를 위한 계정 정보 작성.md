@@ -1,0 +1,64 @@
+# 개요
+
+- SDK 인수인계로 계정 정보를 허현팀장님이 메신져로 달라고 요청에 의해서 작성
+  - [모바일-SDK-인수인계/1 인수인계 항목](dooray://1387695619080878080/tasks/3767630265547535049 'closed')
+
+# 계정
+
+- 안드로이드
+  - 구글
+    - 계정
+      - amazingrnd@gmail.com
+      - ^&%Amz365
+    - 기능
+      - 네이티브 안드로이드 QA 앱 구글 콘솔 관리(com.acecounter.android.acetmtest)
+    - SampleForACSDK Generate Signed Bundle or APK(com.acecounter.android.acetmtest)
+      - Key store path
+        - ace.sdk.and.git/store sign key/nhndnt_android_release.keystore
+      - Key store password
+        - ad2nhndnt!!
+      - Key alias
+        - nhndnt_android_release
+      - Key password
+        - ad2nhndnt!!
+  - [nexus repository manager](https://s01.oss.sonatype.org/#welcome)
+    - 계정
+      - jinsang
+      - !@#Defense83
+  - firebase
+    - 계정
+      - id: demojinsang@gmail.com
+      - pw: nebill123
+    - 복구메일: hheo@nhndata.com
+    - 기능
+      - react QA 사이트 호스팅(https://rnfornhndata.web.app/)
+      - 푸시 테스트를 위한 firebase 프로젝트 셋팅
+        - 웹푸시, 모바일 푸시
+- 애플
+  - appstoreconnect.apple.com
+    - 계정
+      - mobile.dnt@gmail.com
+      - @!#Amzlab365
+    - 샘플앱 공통
+      - 로그인 화면 계정
+        - amzsoft
+        - data@90089
+    - two factor authentication
+      - iphone 7
+        - 비밀번호 전체 숫자
+          - 0000
+        - 인터넷 가능한 wifi 연결시 확인코드 수신 가능
+  - cocoapods
+    - cocoapods 없을 경우
+      - `sudo gem install cocoapods`
+    - acecounter.sdk.ios git 루트 위치에서
+      - `pod trunk register hheo@nhndata.com AceAnalytics --description='AC dev team chief.'`
+    - AceAnalytics 소유자 추가 완료
+      - ![image.png](/files/3769090918016590736)
+- NPM
+  - nhndata
+  - @!#Amzlab365
+  - 메일링그룹
+    - dl_acp-sdk@nhndata.com
+      - `왓츠업 > 메일링 그룹` 에서 관리
+    - 유효기간: 2023.08.29 ~ 2024.11.29
