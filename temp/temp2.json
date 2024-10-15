@@ -1,27 +1,95 @@
 {
-  "_responseCode": 200,
-  "_responseBody": "done",
-  "_responseHeaders": {
-    "access-control-allow-origin": "*",
-    "x-powered-by": "Express",
-    "content-length": "4",
-    "cp-cid": "dummyCid",
-    "connection": "keep-alive",
-    "cp-source-ip": "127.0.0.1",
-    "cp-lnc-id": "1iAMEe1l2dAylAF1",
-    "cp-private": "0",
-    "cp-domain": "http://192.168.0.4:52274/",
-    "etag": "W/\"4-5f2c/g6AOREdVLWI53srsMrUHDo\"",
-    "cp-app": "0",
-    "accept-ch": "UA, Platform, Arch",
-    "cp-repeat-interval": "21600",
-    "cp-debug": "0",
-    "cp-crash-domain": "http://192.168.0.4:52274/",
-    "content-type": "text/plain; charset=utf-8",
-    "cp-allow": "*",
-    "cp-force-stop": "0",
-    "date": "Mon, 19 Jul 2021 07:34:56 GMT",
-    "cp-force-delete-failedlogs": "0",
-    "keep-alive": "timeout=5"
+  "ret_code": 0,
+  "ret_msg": "성공하였습니다.",
+  "list": [
+    {
+      "essential_channel_id": 67762,
+      "essential_image": { "path": "/677/67762.jpg", "color": "243c44" },
+      "essential_title_image": {
+        "path": "/677/67762_title.jpg",
+        "color": "243c44"
+      },
+      "essential_vertical_image": { "path": "/677/67762_vertical.jpg" },
+      "available_yn": true,
+      "essential_titles": {
+        "essential_title_ko": "길어지는 그림자를 바라보며",
+        "essential_title_en": "Watching the Lengthening Shadows"
+      },
+      "valid_yn": true
+    },
+    {
+      "essential_channel_id": 67661,
+      "essential_image": { "path": "/676/67661.jpg", "color": "5c5a51" },
+      "essential_title_image": {
+        "path": "/676/67661_title.jpg",
+        "color": "5c5a51"
+      },
+      "essential_vertical_image": { "path": "/676/67661_vertical.jpg" },
+      "available_yn": true,
+      "essential_titles": {
+        "essential_title_ko": "리듬 타기 좋은 라이브 재즈 카페",
+        "essential_title_en": "At a Live Jazz Cafe"
+      },
+      "valid_yn": true
+    },
+    {
+      "essential_channel_id": 67657,
+      "essential_image": { "path": "/676/67657.jpg", "color": "29363d" },
+      "essential_title_image": {
+        "path": "/676/67657_title.jpg",
+        "color": "29363d"
+      },
+      "essential_vertical_image": { "path": "/676/67657_vertical.jpg" },
+      "available_yn": true,
+      "essential_titles": {
+        "essential_title_ko": "조금 천천히 걸어도 돼",
+        "essential_title_en": "You Can Walk a Little Slower"
+      },
+      "valid_yn": true
+    },
+    {
+      "essential_channel_id": 67655,
+      "essential_image": { "path": "/676/67655.jpg", "color": "582706" },
+      "essential_title_image": {
+        "path": "/676/67655_title.jpg",
+        "color": "582706"
+      },
+      "essential_vertical_image": { "path": "/676/67655_vertical.jpg" },
+      "available_yn": true,
+      "essential_titles": {
+        "essential_title_ko": "소음 없는 도서관 한구석에서",
+        "essential_title_en": "In a Quiet Library"
+      },
+      "valid_yn": true
+    },
+    {
+      "essential_channel_id": 67654,
+      "essential_image": { "path": "/676/67654.jpg", "color": "eecb89" },
+      "essential_title_image": {
+        "path": "/676/67654_title.jpg",
+        "color": "eecb89"
+      },
+      "essential_vertical_image": { "path": "/676/67654_vertical.jpg" },
+      "available_yn": true,
+      "essential_titles": {
+        "essential_title_ko": "어느 순간 무르익은 계절",
+        "essential_title_en": "The Moment When Autumn Came"
+      },
+      "valid_yn": true
+    }
+  ],
+  "pager": {
+    "page": 1,
+    "list": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    "total_count": 5,
+    "page_size": 100,
+    "set_size": 10,
+    "first_page": 1,
+    "last_page": 1,
+    "prev_page": 1,
+    "next_page": 1,
+    "first_yn": true,
+    "last_yn": true,
+    "remain_count": 0
   }
 }

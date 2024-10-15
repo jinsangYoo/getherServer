@@ -1,18 +1,170 @@
 {
-  "host": "192.168.0.18:52274",
-  "connection": "keep-alive",
-  "cp-application-id": "NeedCheck::getPackageNameOrBundleID",
-  "cp-request-cid": "AK2A79936",
-  "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36",
-  "cp-request-time": "1650510098826",
-  "access-control-allow-origin": "*",
-  "accept": "application/json, text/plain, */*",
-  "cp-request-platform": "react",
-  "cp-request-version": "0.0.278",
-  "cp-request-id": "AK2A79936",
-  "origin": "http://localhost:3000",
-  "referer": "http://localhost:3000/",
-  "accept-encoding": "gzip, deflate",
-  "accept-language": "ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7,ja;q=0.6",
-  "if-none-match": "W/\"4-5f2c/g6AOREdVLWI53srsMrUHDo\""
+  "ret_code": 0,
+  "ret_msg": "성공하였습니다.",
+  "list": [
+    {
+      "essential_channel_id": 63998,
+      "essential_image": { "path": "/639/63998.jpg", "color": "373f46" },
+      "essential_title_image": {
+        "path": "/639/63998_title.jpg",
+        "color": "373f46"
+      },
+      "essential_vertical_image": { "path": "/639/63998_vertical.jpg" },
+      "available_yn": true,
+      "essential_titles": {
+        "essential_title_ko": "나른한 공기가 밀려올 때",
+        "essential_title_en": "When the Lazy Breeze Drifts In"
+      },
+      "valid_yn": true
+    },
+    {
+      "essential_channel_id": 66813,
+      "essential_image": { "path": "/668/66813.jpg", "color": "1f211a" },
+      "essential_title_image": {
+        "path": "/668/66813_title.jpg",
+        "color": "1f211a"
+      },
+      "essential_vertical_image": { "path": "/668/66813_vertical.jpg" },
+      "available_yn": true,
+      "essential_titles": {
+        "essential_title_ko": "동화처럼 다정한 날이 되길",
+        "essential_title_en": "Sweet Days Like a Fairy Tale"
+      },
+      "valid_yn": true
+    },
+    {
+      "essential_channel_id": 64178,
+      "essential_image": { "path": "/641/64178.jpg", "color": "cdcbc4" },
+      "essential_title_image": {
+        "path": "/641/64178_title.jpg",
+        "color": "cdcbc4"
+      },
+      "essential_vertical_image": { "path": "/641/64178_vertical.jpg" },
+      "available_yn": true,
+      "essential_titles": {
+        "essential_title_ko": "포근하게 다가오는 멜로디",
+        "essential_title_en": "A Cozy Melody"
+      },
+      "valid_yn": true
+    },
+    {
+      "essential_channel_id": 64175,
+      "essential_image": { "path": "/641/64175.jpg", "color": "f8835c" },
+      "essential_title_image": {
+        "path": "/641/64175_title.jpg",
+        "color": "f8835c"
+      },
+      "essential_vertical_image": { "path": "/641/64175_vertical.jpg" },
+      "available_yn": true,
+      "essential_titles": {
+        "essential_title_ko": "한 잔의 여유를 마시며",
+        "essential_title_en": "A Leisurely Tea Time"
+      },
+      "valid_yn": true
+    },
+    {
+      "essential_channel_id": 64189,
+      "essential_image": { "path": "/641/64189.jpg", "color": "eea7bd" },
+      "essential_title_image": {
+        "path": "/641/64189_title.jpg",
+        "color": "eea7bd"
+      },
+      "essential_vertical_image": { "path": "/641/64189_vertical.jpg" },
+      "available_yn": true,
+      "essential_titles": {
+        "essential_title_ko": "주말 아침의 브런치 타임",
+        "essential_title_en": "Weekend Brunch"
+      },
+      "valid_yn": true
+    },
+    {
+      "essential_channel_id": 64242,
+      "essential_image": { "path": "/642/64242.jpg", "color": "112725" },
+      "essential_title_image": {
+        "path": "/642/64242_title.jpg",
+        "color": "112725"
+      },
+      "essential_vertical_image": { "path": "/642/64242_vertical.jpg" },
+      "available_yn": true,
+      "essential_titles": {
+        "essential_title_ko": "싱그러운 햇살이 가득한 창가에서",
+        "essential_title_en": "By the Sunny Window"
+      },
+      "valid_yn": true
+    },
+    {
+      "essential_channel_id": 64205,
+      "essential_image": { "path": "/642/64205.jpg", "color": "51532f" },
+      "essential_title_image": {
+        "path": "/642/64205_title.jpg",
+        "color": "51532f"
+      },
+      "essential_vertical_image": { "path": "/642/64205_vertical.jpg" },
+      "available_yn": true,
+      "essential_titles": {
+        "essential_title_ko": "푸릇한 풍경과 여유로운 오후",
+        "essential_title_en": "Refreshing Landscape, a Relaxed Afternoon"
+      },
+      "valid_yn": true
+    },
+    {
+      "essential_channel_id": 64003,
+      "essential_image": { "path": "/640/64003.jpg", "color": "5e760c" },
+      "essential_title_image": {
+        "path": "/640/64003_title.jpg",
+        "color": "5e760c"
+      },
+      "essential_vertical_image": { "path": "/640/64003_vertical.jpg" },
+      "available_yn": true,
+      "essential_titles": {
+        "essential_title_ko": "오늘은 집에서 푹 쉴래",
+        "essential_title_en": "I’m Staying at Home Today"
+      },
+      "valid_yn": true
+    },
+    {
+      "essential_channel_id": 64182,
+      "essential_image": { "path": "/641/64182.jpg", "color": "c0b491" },
+      "essential_title_image": {
+        "path": "/641/64182_title.jpg",
+        "color": "c0b491"
+      },
+      "essential_vertical_image": { "path": "/641/64182_vertical.jpg" },
+      "available_yn": true,
+      "essential_titles": {
+        "essential_title_ko": "커피가 떠오르는 느린 오후에",
+        "essential_title_en": "On a Slow Afternoon, with Coffee in Mind"
+      },
+      "valid_yn": true
+    },
+    {
+      "essential_channel_id": 63997,
+      "essential_image": { "path": "/639/63997.jpg", "color": "c2c1bf" },
+      "essential_title_image": {
+        "path": "/639/63997_title.jpg",
+        "color": "c2c1bf"
+      },
+      "essential_vertical_image": { "path": "/639/63997_vertical.jpg" },
+      "available_yn": true,
+      "essential_titles": {
+        "essential_title_ko": "여유롭고 나른한 오후",
+        "essential_title_en": "A Slow Afternoon"
+      },
+      "valid_yn": true
+    }
+  ],
+  "pager": {
+    "page": 1,
+    "list": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    "total_count": 10,
+    "page_size": 100,
+    "set_size": 10,
+    "first_page": 1,
+    "last_page": 1,
+    "prev_page": 1,
+    "next_page": 1,
+    "first_yn": true,
+    "last_yn": true,
+    "remain_count": 0
+  }
 }
